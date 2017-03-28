@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html class="full" lang="en">
+
+<head class="dieOstsee">
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=yes, minimal-ui">
+	
+	<meta name="description" content="___________">
+	<meta name="author" content="Connie Leung HalloConnie CCHGF">
+
+	<!-- Reveal meta -->
+	<link rel="stylesheet" href="reveal/css/reveal.css">
+	<link rel="stylesheet" href="reveal/css/theme/2001.css" id="theme">
+
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="reveal/css/styling.css">
+	<link rel="stylesheet" media="all" href="reveal/css/media2.css">
+	
+	<!-- Typefaces -->
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Quicksand:300|Source+Code+Pro:200" rel="stylesheet">
+	<!-- 
+	font-family: 'Cormorant Garamond',serif; 
+	font-family: 'Quicksand', sans-serif;
+	font-family: 'Source Code Pro', monospace;
+	-->
+	
+	<!-- UI Kits -->
+	<link rel="stylesheet" href="ven/font-awesome/css/font-awesome.min.css">
+	
+	<!-- PLUGINS -->
+
+	<!-- Overlay -->
+	<!--link rel="stylesheet" href="reveal/lib/ven/overlay/overlay.css"-->
+	
+	
+	<title>BikeShare</title>
+	
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom CSS -->
+	<link href="css/the-big-picture.css" rel="stylesheet">
+
+	<!-- React.js -->
+	<script src="https://npmcdn.com/react@15.3.0/dist/react.js"></script>
+	<script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.js"></script>
+	<script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+	<script src="https://npmcdn.com/jquery@3.1.0/dist/jquery.min.js"></script>
+	<script src="https://npmcdn.com/remarkable@1.6.2/dist/remarkable.min.js"></script>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<script src="ven/jquery-knob/js/jquery.knob.js"></script>
+	<script>
+			$(function($) {
+
+				$(".knob").knob({
+						draw : function () {
+
+							// "tron" case
+							if(this.$.data('skin') == 'tron') {
+
+								this.cursorExt = 0.3;
+
+								var a = this.arc(this.cv)  // Arc
+										, pa                   // Previous arc
+										, r = 1;
+
+								this.g.lineWidth = this.lineWidth;
+
+								this.g.beginPath();
+								this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
+								this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
+								this.g.stroke();
+
+								this.g.lineWidth = 2;
+								this.g.beginPath();
+								this.g.strokeStyle = this.o.fgColor;
+								this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+								this.g.stroke();
+
+								return false;
+						}
+					}
+				});
+			});
+	</script>
+	
+	<style>
+		.reveal .slides > section.present, .reveal .slides > section > section.present {
+    left: 0;
+		}
+		
+		.full {
+			background: transparent;
+		}
+		
+		/* nav style */
+		
+		.navbar {
+			font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 0.25em;
+			font-size: 90%;
+		}
+		
+		.navbar-inverse {
+			background-color: rgba(58, 61, 68, 0.99);
+			border-color: transparent;
+		}
+		
+		.navbar-inverse .navbar-toggle {
+			border-color: transparent;
+		}
+		
+		.navbar-inverse .navbar-toggle .icon-bar {
+			background-color: rgba(93, 226, 201, 0.85);
+		}
+		
+		.navbar-fixed-bottom .navbar-collapse,
+		.navbar-fixed-top .navbar-collapse {
+			max-height: inherit;
+		}
+		/* Notification tooltip Notes */
+		
+		.btn {
+			border-radius: 0;
+		}
+		
+		h4.inverted-btn {
+			padding: 8% 15% 0 15%;
+			color: rgba(255, 255, 255, 1);
+			text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+			font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;
+			font-size: 0.5em;
+			letter-spacing: 0.15em;
+		}
+		
+		hr.notes {
+			border-top: transparent;
+		}
+		
+		.notification-box {
+			right: 25%;
+			left: 25%;
+		}
+		
+		img.notification-box {
+			margin: 0;
+			width: 10%;
+		}
+		
+		h4.notification-box {
+			position: initial;
+		}
+		
+		ul.notification-box {
+			list-style-type: none;
+			letter-spacing: 0.45em;
+			color: rgba(255, 255, 255, 0.5);
+			background-color: rgba(51, 51, 51, 0.25);
+			font-size: 0.5em;
+			font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;
+			text-transform: uppercase;
+			text-align: center;
+			line-height: 1.75em;
+			width: 60%;
+			padding: 2%;
+			/*padding: 5% 10% 5% 10%;*/
+			margin-left: 0;
+		}
+		
+		ul.notification-box-hide {
+			list-style-type: none;
+			letter-spacing: 0.45em;
+			color: rgba(255, 255, 255, 0.5);
+			/* background-color: rgba(51, 51, 51, 0.25); */
+			/* font-size: 0.5em; */
+			font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;
+			/* text-transform: uppercase; */
+			text-align: center;
+			line-height: 1.75em;
+			/* width: 60%; */
+			padding-top: 2%;
+			/* padding: 5% 10% 5% 10%; */
+			margin-left: 0;
+		}
+		
+		.btn-default.active.focus,
+		.btn-default.active:focus,
+		.btn-default.active:hover,
+		.btn-default:active.focus,
+		.btn-default:active:focus,
+		.btn-default:active:hover,
+		.open>.dropdown-toggle.btn-default.focus,
+		.open>.dropdown-toggle.btn-default:focus,
+		.open>.dropdown-toggle.btn-default:hover,
+		.btn-default.active,
+		.btn-default:active,
+		.open>.dropdown-toggle.btn-default,
+		.btn-default:hover,
+		.btn-default.focus,
+		.btn-default:focus,
+		.btn.active,
+		.btn:active {
+			color: transparent !important;
+			background-color: transparent !important;
+			border-color: transparent !important;
+			outline: transparent;
+			outline: none;
+			outline-offset: inherit;
+		}
+		
+		.headers.logo.svg {
+			padding-right: 10%;
+		}
+		
+		button#hide {
+			font-size: 30%;
+		}
+		
+		button#show,
+		button#hide {
+			background: transparent;
+			border: transparent;
+			box-shadow: none;
+			margin: 0 auto;
+			display: block;
+			margin-top: 0%;
+			/* padding: 6.5%; */
+			margin-bottom: -29%;
+		}
+		
+		button#show-notes {
+			background: transparent;
+			border: none;
+			margin: 0 auto;
+			display: block;
+			/* letter-spacing: 0.25em; */
+			text-transform: uppercase;
+			/* font-weight: normal; */
+			background-color: rgba(48, 16, 78, 0.55);
+			/* padding-left: 0.47em; */
+			width: 50px;
+			height: 50px;
+			border-radius: 100%;
+			/* color: rgba(138,43,226,0.5); */
+			color: rgba(104, 232, 208, 0.99);
+		}
+		
+		button#hide-notes {
+			list-style-type: none;
+			letter-spacing: 0.45em;
+			color: rgba(255, 255, 255, 0.5);
+			background-color: rgba(51, 51, 51, 0.25);
+			border: none;
+			font-size: 0.5em;
+			font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;
+			text-transform: uppercase;
+			text-align: center;
+			line-height: 1.75em;
+			width: 60%;
+			padding: 2%;
+			/*padding: 5% 10% 5% 10%;*/
+			margin-left: 0;
+		}
+		
+		.categories.fontsize h2.headers {
+			font-size: 0.75em;
+			border-top: 0.5px solid rgba(0, 0, 0, 0.05);
+		}
+		
+		h3.sub-header-title.category {
+			background-color: rgba(153, 153, 153, 0.5);
+			font-size: 0.3em;
+			letter-spacing: 0.25em;
+			padding: 1%;
+			text-align: center;
+			margin: 0 auto;
+			border: 1px solid rgba(153, 153, 153, 0.85);
+			border-style: groove;
+			display: block;
+			margin-bottom: 1%;
+			margin-top: -4%;
+		}
+		
+		hr.sub-header-title.category.webapp {
+			width: 18%;
+			border-top: 1px solid rgba(153, 153, 153, 0.85);
+			border-style: groove;
+		}
+		
+		h3.sub-header-title.category.webapp {
+			width: 12%;
+			font-weight: bolder;
+		}
+		/* container category */
+		
+		.container.sub-header-title.category,
+		.row.sub-header-title.category {
+			width: 100%;
+			margin: 0 auto;
+			display: block;
+			text-align: center;
+			margin-top: -5%;
+			margin-bottom: -0.25em;
+			opacity: 0.6;
+			font-size: 85%;
+		}
+		
+		.col-xs-1.col-sm-1.sub-header-title.category.webapp.links hr {
+			width: 30%;
+			float: right;
+			margin-top: 90%;
+			border-top: 5px solid rgba(21, 88, 76, 0.5);
+		}
+		
+		.col-md-1.col-lg-1.sub-header-title.category.webapp.links hr {
+			width: 30%;
+			float: right;
+			margin-top: 100%;
+			border-top: 5px solid rgba(21, 88, 76, 0.5);
+		}
+		
+		.col-xs-1.col-sm-1.sub-header-title.category.webapp.rechts hr {
+			width: 30%;
+			float: right;
+			margin-top: 90%;
+			border-top: 5px solid rgba(21, 88, 76, 0.5);
+		}
+		
+		.col-md-1.col-lg-1.sub-header-title.category.webapp.rechts hr {
+			width: 30%;
+			float: left;
+			margin-top: 100%;
+			border-top: 5px solid rgba(21, 88, 76, 0.5);
+		}
+		
+		.col-xs-6.sub-header-title.category.webapp.mitte,
+		.col-sm-6.sub-header-title.category.webapp.mitte,
+		.col-md-4.sub-header-title.category.webapp.mitte,
+		.col-lg-4.sub-header-title.category.webapp.mitte {
+			background-color: rgba(21, 88, 76, 0.5);
+			padding: 2% 0 0.25% 0;
+			font-size: 50%;
+			vertical-align: middle;
+			margin: 4em 0 -0.5em 0;
+		}
+		
+		h3.category.webapp {
+			letter-spacing: 0.5em;
+		}
+		
+		/* header description */
+		.container.description.inverted.sub-header-title {
+			width: 100%;
+			font-size: 80%;
+			font-size: 70%;
+			font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;
+			color: rgba(240, 248, 255, 0.99);
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			font-weight: initial;
+			padding: 0 10%;
+		}
+		
+		.col-xs-12.description.inverted.sub-header-title p,
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12.description.inverted.sub-header-title p {
+			line-height: 1.85em;
+			word-wrap: break-word;
+			word-break: break-word;
+		}
+		
+		@media (min-width: 768px) {
+			.container {
+				width: 750px;
+			}
+		}
+		@media (min-width: 992px) {
+			.container {
+				width: 970px;
+			}
+		}
+		@media (min-width: 1200px) {
+			.container {
+				width: 1170px;
+			}
+		}
+		
+		/* text blockquote p css fade-in animation */
+		@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+		}
+
+		/* Firefox < 16 */
+		@-moz-keyframes fadein {
+				from { opacity: 0; }
+				to   { opacity: 1; }
+		}
+
+		/* Safari, Chrome and Opera > 12.1 */
+		@-webkit-keyframes fadein {
+				from { opacity: 0; }
+				to   { opacity: 1; }
+		}
+
+		/* Internet Explorer */
+		@-ms-keyframes fadein {
+				from { opacity: 0; }
+				to   { opacity: 1; }
+		}
+
+		/* Opera < 12.1 */
+		@-o-keyframes fadein {
+				from { opacity: 0; }
+				to   { opacity: 1; }
+		}
+		
+		.blur-mid {
+			-webkit-filter:blur(1px);
+			-moz-filter: blur(1px);
+			-o-filter: blur(1px);
+			-ms-filter: blur(1px);
+		}
+		
+		.blur-bg {
+			-webkit-filter:blur(3px);
+			-moz-filter: blur(3px);
+			-o-filter: blur(3px);
+			-ms-filter: blur(3px);
+		}
+		
+
+	</style>
+
+</head>
+
+<body class="dieOstsee">
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">
+					<img style="width:2em;height:2em;opacity:0.25;" src="http://emojipedia-us.s3.amazonaws.com/cache/06/ef/06ef6b773082d0e98439c4e0b8c9dee6.png"/> <!--🤖 🦄-->
+				</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="index.html#/showcase" data-preview-link><i class="fa fa-window-minimize" aria-hidden="true"></i>Showcase</a>
+					</li>
+					<li class="" style="">
+						<a href="index.html#/partnerships" data-preview-link>&#215; Clients</a>
+					</li>
+					<li>
+						<a href="index.html#/workshops" data-preview-link>workhops</a>
+					</li>
+					<li>
+						<a href="index.html#/what-we-do" data-preview-link><i class="fa fa-magic" aria-hidden="true"></i> Tools</a>
+					</li>
+					<li>
+						<a href="index.html#/social" data-preview-link>&#215; Latest</a>
+					</li>
+					<li>
+						<a href="revealmenu.html">&#215; <i class="fa fa-search-plus" aria-hidden="true"></i> &#215;</a>
+					</li>
+					<!--li class="poo" style="font-size:2em;opacity:0.5;">
+						<a href="#about">💩</a>
+					</li-->
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+	</nav>
+
+	<!-- Page Content -->
+	<div class="reveal">
+		<div class="slides">
+
+			<!-- wearable bikeshare -->
+			<section id="wearable" data-background="">
+		
+				<section id="" class="physical wearable" data-background-iframe="ven/hd/other/dtp-vector-field/index.html" scrolling="no" style="background-position:center center;background-size:cover;background-repeat:no-repeat;">
+				<div class="container subheader ux device" style="width:100%;margin-top:3em;">
+
+					<!-- ribbon -->
+					<div class="row bootstrap subheader ux mobile" style="width: 100%;font-size:65%;margin-left: -0.25em;">
+						<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 bootstrap links" style="width:19.65%;padding:1.25%;margin:0 0.10%;"></div>
+						<div class="col-xs-8 col-sm-6 col-md-4 col-lg-4 bootstrap mitte" style="width:60%;margin:0 0.10%;">
+							<div class="row bootstrap subheader digital cms category title" style="width: 100%;">
+								<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 bootstrap links" style="width:19.65%;padding:0 0 2% 2%;">			
+									<hr class="category" style="width:1.5em;float:right;border:0.1em solid rgba(81, 78, 81,1);"/>
+								</div>
+								<div class="col-xs-8 col-sm-6 col-md-4 col-lg-4 bootstrap mitte" style="background-color:rgba(81, 78, 81,1);width:60%;padding:3.5% 0 0 0;">
+									<h3 class="category cms" style="letter-spacing:0.5em;text-transform:uppercase;font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;font-size:0.75em;font-weight: 800;padding:2%;margin-bottom:1%;margin-top:-4%;color:rgba(254, 254, 254,0.5);">
+										<a href="index.html#/showcase">Showcase</a></h3>
+								</div>
+								<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 bootstrap rechts" style="width:19.65%;padding:0 2% 2% 0;">
+									<hr class="category" style="width:1.5em;float:left;border:0.1em solid rgba(81, 78, 81,1);"/>
+								</div>
+							</div><!-- /.row -->
+						</div>
+						<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 bootstrap rechts" style="width:19.65%;padding:1.25%;margin:0 0.10%;"></div>
+					</div>
+
+					<!-- category -->
+					<div class="row category" style="width:100%;margin-left:-0.15em;">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width:100%;margin-top:0.15em;">
+							<h3 class="inverted sub-header-title" style="font-size:49%;text-transform:uppercase;letter-spacing:0.5em;color:rgba(51, 51, 51,0.75);font-weight:bolder;">
+								<span class="sub-header dark plus" style="font-size:110%;opacity:0.75;">×</span> 
+								Wearables
+								<span class="sub-header dark plus" style="font-size:110%;opacity:0.75;">×</span>
+							</h3>
+						</div>
+					</div>
+
+					<!-- title -->
+					<div class="row ux device project" style="width: 100%;margin-left:0.25em;">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bootstrap project title" style="margin:0 0.10%;font-size:115%;color:rgba(126, 123, 126,0.75);">
+							<h2 class="headers project title" style="text-transform:uppercase;letter-spacing:0.02em;text-align:center;margin-bottom: 0;">
+								Locus
+							</h2>
+						</div>
+					</div>
+					
+					<!-- description -->
+					<div class="row description" style="width:100%;">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width:100%;margin-top:0.15em;margin-left: 0.25em;">
+							<h3 class="inverted sub-header-title" style="font-size:50%;text-transform:uppercase;letter-spacing:0.25em;word-spacing:0.5em;color:rgba(51, 51, 51,0.85);font-weight:bold;">
+								An Exo Haptic Cycling Navigator
+							</h3>
+						</div>
+					</div>
+
+					<!-- sublinks rgb(81, 78, 81) -->
+					<div class="row sublinks 4" style="width:100%;font-size:57%;text-transform:uppercase;letter-spacing:0.5em;padding:1.5%;border-top:0.75px solid rgba(51, 51, 51,0.75);margin-left:-0.5em;">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 bootstrap mitte btn" style="width:1%;padding:1.5%;margin:0 2% 0 2%;"></div>
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 bootstrap mitte btn" style="background-color:rgb(51, 51, 51);width:18em;padding:1.5%;margin:0 2%;">
+							<a href="#/concept" style="color:rgba(254, 254, 254, 0.75);">Concept</a></div>
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 bootstrap mitte btn" style="background-color:rgb(51, 51, 51);width:18em;padding:1.5%;margin:0 2%;">
+							<a href="#/press-wearable-newspaper" style="color:rgba(254, 254, 254, 0.75);">Press</a></div>
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 bootstrap mitte btn" style="width:1%;padding:1.5%;margin:0 2%;"></div>
+					</div>
+
+					<!-- nav arrow down -->
+					<div class="row" style="width:100%;margin-top:3.5%;">
+						<button class="navigate-down enabled" aria-label="below slide" style="background:transparent;border:transparent;">
+							<i class="fa fa-angle-down btn" aria-hidden="true" style="font-size: 3em;color:rgba(245, 245, 245, 0.5);"></i>
+						</button>
+					</div>
+					
+				</div>
+			
+				</section>
+				<!-- #wearable header  -->
+				
+				<!-- Hero -->
+				<section id="hero">
+					<div class="container info" style="width:100%;margin-top:0.25em;">
+						<!-- info content -->
+						<div class="row info content" style="width:95.25%;height:16em;margin-left:em;background-color:rgba(51,51,51,0.95);background-image:url(proj/bikeshare/bikeshare-product1.jpg);background-size:cover;background-repeat:no-repeat;background-position:center center;opacity:0.85;">
+						</div>
+						<!-- nav arrow down -->
+						<div class="row" style="width:100%;margin-top:-0.75em;">
+							<button class="navigate-down enabled" aria-label="below slide" style="background:transparent;border:transparent;">
+								<i class="fa fa-angle-down btn" aria-hidden="true" style="font-size: 3em;color:rgba(245, 245, 245, 0.5);"></i>
+							</button>
+						</div>
+					</div>
+				</section>
+				<!-- #Concept -->
+				
+				<!-- concept -->
+				<section id="concept-wearable" data-background-image="" data-background-color="rgba(251, 2, 128, 0.75)">
+					<!-- bootstrap mentions header -->
+					<div class="container info" style="width:100%;animation: fadein 1s;transition: opacity 1s ease-in;">
+
+						<!-- info content -->
+						<div class="row info content" style="width:110%;height:16.75em;margin-left:-1.35em;">
+							<blockquote class="press bikeshare metro" style="font-family:'Futura', sans-serif;font-size:2em;letter-spacing: 0;line-height: 1.2em;margin:0;padding:0 0.25em;color: rgba(240, 248, 255, 1);width:100%;background:transparent;border:transparent;box-shadow:none;">
+									<span style="animation: fadein 2s;transition: opacity 2s ease-in;">"A </span>
+									<span style="animation: fadein 4s;transition: opacity 4s ease-in;">wearable harness </span>
+									<br />
+									<span style="animation: fadein 6s;transition: opacity 6s ease-in;">that gives </span>
+									<span style="animation: fadein 8s;transition: opacity 8s ease-in;">directions through </span>
+									<br />
+									<span style="animation: fadein 10s;transition: opacity 10s ease-in;">haptic feedback </span>
+									<span style="animation: fadein 11s;transition: opacity 1s ease-in;">to a </span>
+									<br />
+									<span style="animation: fadein 11s;transition: opacity 14s ease-in;">more sophisticated algorithm </span>
+									<br />
+									<span style="animation: fadein 11s;transition: opacity 16s ease-in;">for </span>
+									<span style="animation: fadein 11s;transition: opacity 18s ease-in;">re-balancing </span>
+									<span style="animation: fadein 13s;transition: opacity 19s ease-in;">bikes </span>
+									<br />
+									<span style="animation: fadein 13s;transition: opacity 20s ease-in;">between (BikeShare) stations."</span>
+								</blockquote>
+							</div>
+							<div class="row info content" style="width:110%;height:3em;margin-left:-1.35em;margin-top:-2em;">
+								<hr class="divider quote author" style="border-top:2px dotted rgba(245, 245, 245, 0.25);animation: fadein 20s;transition: opacity 20s ease-in;" />
+								<p class="quote author" style="font-family:'Futura', sans-serif;letter-spacing:0.6em;word-spacing:0.5em;font-weight:lighter;font-size:45%;text-transform:uppercase;color:rgba(245, 245, 245, 0.56);padding-top: 0.25em;animation: fadein 20s;transition: opacity 20s ease-in;">
+									&#45; MetroNews.ca &#45;
+								</p>
+							</div>
+							<div class="row info content" style="width:110%;height:em;margin-left:-1.5em;margin-top:-0.5em;animation: fadein 25s;transition: opacity 25s ease-in;">
+								<a href="http://www.metronews.ca/news/toronto/2014/08/22/what-can-bike-share-data-tell-us-about-toronto.html" target="_blank" class="btn press bikeshare metro" style="font-family:'Futura', sans-serif;letter-spacing:0.5em;word-spacing:0.5em;font-size:35%;text-transform:uppercase;border:2.75px solid rgba(245, 245, 245, 0.25);padding:1.5em 2.75em 1.5em 3em;color:rgba(245, 245, 245, 0.56);font-weight:lighter;">
+								Read More
+								</a>
+							</div>
+						<!-- /.row -->
+
+					</div><!-- /.container -->						
+				</section>
+				<!-- #Concept -->
+
+				<!-- Tools 2 -->
+				<section id="tools-chartjs-wearable" data-background="rgba(rgba(51,51,51,0.25)">
+					<!-- chart Reference: http://www.pitstopmedia.com/sem/images/2014/02/SEO-User-Experience.png -->
+					<div class="container chartjs" style="width:100%;">
+
+						<!-- ribbon -->
+						<div class="row chartjs ribbon" style="width: 100%;margin-top:-0.5em;">
+							<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 chartjs ribbon links" style="width:19.65%;padding:1.25%;margin:0 0.10%;"></div>
+							<div class="col-xs-8 col-sm-6 col-md-4 col-lg-4 chartjs ribbon mitte" style="width:60%;margin:0 0.10%;">
+								<div class="row chartjs ribbon" style="width: 100%;">
+									<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 chartjs ribbon links" style="width:19.65%;padding:0 0 2% 2%;">			
+										<hr class="category" style="width:1.5em;float:right;border:0.1em solid rgba(153, 153, 153, 0.25);"/>
+									</div>
+									<div class="col-xs-8 col-sm-6 col-md-4 col-lg-4 chartjs ribbon mitte" style="background-color:rgba(153, 153, 153, 0.25);width:60%;padding:3.5% 0 0 0;">
+										<h3 class="category chratjs ribbon" style="letter-spacing:0.5em;text-transform:uppercase;font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;font-size:0.75em;font-weight: 800;padding:2% 2% 2% 6.5%;margin-bottom:1%;margin-top:-4%;color:rgba(51,51,51,0.8);">Tools</h3>
+									</div>
+									<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 chartjs ribbon  rechts" style="width:19.65%;padding:0 2% 2% 0;">
+										<hr class="category" style="width:1.5em;float:left;border:0.1em solid rgba(153, 153, 153, 0.25);"/>
+									</div>
+								</div><!-- /.row -->
+							</div>
+							<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 chartjs ribbon rechts" style="width:19.65%;padding:1.25%;margin:0 0.10%;"></div>
+						</div><!-- /.row -->
+
+						<!-- table notes -->
+						<div class="row keywords" style="width:100%;">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 chartjs" style="width:100%;margin:0 0.10%;">
+								<!-- data name + pro tips -->
+								<div style="width: 100%;text-transform:uppercase;text-align:center;border-bottom:1px dotted rgba(245, 245, 245, 0.5);background-color:rgba(51,51,51,0);color:rgba(51,51,51,0.75);font-weight:500;letter-spacing:0.2em;padding-top:0.5em;">
+									<p class="" style="font-size:30%;">
+										Skillset Difficulty Index Score: 80 / 100
+									</p>
+								</div>	
+							</div>
+						</div><!-- /.table notes -->
+						
+						<!-- iframe process -->
+						<div class="row chartjs iframe" style="width:120%;height:15.5em;margin-right:-2em;margin-left:-2.5em;margin-top:1em;margin-bottom:0;">
+							
+							<iframe id="skills-wearable" data-chart scrolling="no" height:"" width="100%" style="overflow: hidden;height:64%;left:0.54em;border: px solid pink;">
+								<canvas class="" width="1050" height="" style=""></canvas>
+							</iframe>
+							</div>
+
+					</div>						
+				</section>
+				<!-- #tools2 -->
+
+				<!-- Process -->
+				<section id="process-wearable">
+					<!-- bootstrap mentions header -->
+					<div class="container process-inds" style="width:100%;">
+
+						<!-- ribbon -->
+						<div class="row ribbon" style="width: 100%;">
+							<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 ribbon links" style="width:19.65%;padding:1.25%;margin:0 0.10%;"></div>
+							<div class="col-xs-8 col-sm-6 col-md-4 col-lg-4 ribbon mitte" style="width:60%;margin:0 0.10%;">
+								<div class="row process ribbon" style="width: 100%;">
+									<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 ribbon links" style="width:19.65%;padding:0 0 2% 2%;">			
+										<hr class="category" style="width:1.5em;float:right;border:0.1em solid rgba(153, 153, 153, 0.25);"/>
+									</div>
+									<div class="col-xs-8 col-sm-6 col-md-4 col-lg-4 ribbon mitte" style="background-color:rgba(153, 153, 153, 0.25);width:60%;padding:3.5% 0 0 0;">
+										<h3 class="category process" style="letter-spacing:0.5em;text-transform:uppercase;font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;font-size:0.75em;font-weight: 800;padding:2% 2% 2% 10%;margin-bottom:1%;margin-top:-4%;color:rgba(51,51,51,0.8);">process</h3>
+									</div>
+									<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 process rechts" style="width:19.65%;padding:0 2% 2% 0;">
+										<hr class="category" style="width:1.5em;float:left;border:0.1em solid rgba(153, 153, 153, 0.25);"/>
+									</div>
+								</div><!-- /.row -->
+							</div>
+							<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 process rechts" style="width:19.65%;padding:1.25%;margin:0 0.10%;"></div>
+						</div><!-- /.row -->
+
+						<!-- iframe process -->
+						<div class="row process iframe" style="width:120%;height:15.75em;margin-right:-2em;margin-left:-2.5em;margin-top:0.75em;">
+
+							<iframe width="100%" height="100%" src="bikeshare-process.html" style="position:relative;"></iframe>
+
+							</div>
+						<!-- /.row -->
+
+						<!-- mentions notes -->
+						<!--div class="row invert bootstrap keywords" style="width:100%;border-top:1px solid pink;padding-top:1%;">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bootstrap" style="width:100%;margin:0 0.10%;">
+								<h3 class="inverted sub-header-title" style="font-size:49%;text-transform:uppercase;letter-spacing:0.5em;color:whitesmoke;">
+									sketches / concept / sewing / CAD / glossy
+								</h3>
+							</div>
+						</div--><!-- /.row -->
+
+					</div><!-- /.container -->						
+				</section>
+				<!-- /.process -->
+
+				<!-- Press BikeShare -->
+				<section id="press-wearable" class="demo desktop hide-mobile category project">
+					<div class="container desktop hide-mobile category project" style="width:100%;height:100%;">
+						
+						<!-- demo content -->
+						<div class="row demo" style="width: 100%;margin-top:-0.5em;">
+							
+							<a href="proj/bikeshare_arup/index.html" target="_blank">
+								<!-- iframe demo -->
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 demo links" style="width:49.75%;height:19.5em;background-image:url('assets/img/iphone6.png');background-repeat:no-repeat;background-size:73%;background-position:center left;">
+
+									<iframe width="321em" height="556em" src="assets/press/BikeShareTorontoHackathonDesignJam-hackbikeshareTO-mobile1.jpg" style="margin-left:-6.27em;margin-top:1.8em;"></iframe>
+
+								</div>
+								<!-- /.demo iframe -->
+							</a>
+							
+							<!-- Press header -->
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 demo content rechts" style="width:49.75%;height:19.5em;margin-left:-2.25em;letter-spacing:0.05em;text-align:left;font-size:80%;">
+								
+								<!-- Press title -->
+								<div class="row demo title" style="width: 100%;margin-top:.25em;margin-bottom:0;border-bottom:2px solid rgba(238,238,238,0.25);">
+									<h2 class="" style="padding:0 3%;text-transform:uppercase;letter-spacing:0.5em;text-align:left;font-size:100%;color:rgba(245,245,245,0.5);font-family:'Futura', sans-serif;">
+									<i class="fa fa-newspaper-o" aria-hidden="true"></i>Press
+									</h2>
+								</div>
+								<!-- /.demo title -->
+								
+								<!-- Reach Out + Goodies -->
+								<div class="row demo reachout btn" style="width: 100%;margin-bottom:0;text-align:center;text-transform:uppercase;">
+									
+									<!-- reference + goodies -->
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 btn-group demo goodies links" style="padding-top:0.65em;margin-right: 1.15em;width:43%;float:left;">
+										
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 tech bike" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);margin-left:-0.25em;visibility:;">
+											<i class="fa fa-bicycle" aria-hidden="true"></i>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 tech android" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:;">
+											<i class="fa fa-android" aria-hidden="true"></i>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 tech mcu" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:;">
+											<i class="fa fa-microchip" aria-hidden="true"></i>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 tech ble" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:;">
+											<i class="fa fa-bluetooth-b" aria-hidden="true"></i>
+										</div>
+										
+									</div>
+									
+									<!-- Reach Out -->
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 links">
+										<a href="#" class="btn" style="letter-spacing:0.25em;font-size:70%;width:100%;background-color:rgba(238,238,238,0.25);color:rgba(6,34,42,0.5);padding:0.5em 1em;float:right;">
+										reach out
+										</a>
+									</div>
+									
+								</div>
+								<!-- /.demo reachout -->
+								
+								<!-- core content -->
+								<div class="row demo content" style="width: 100%;">
+									
+									<p class="" style="font-family: 'Source Code Pro', monospace;letter-spacing:0.25em;font-size:60%;margin: 2em 0 0 0;padding-bottom:0.5em;border-bottom:1px dotted rgba(245, 245, 245, 0.25);text-transform:uppercase;font-weight:bolder;">
+										<a href="" target="_blank">
+											<i class="fa fa-flask" aria-hidden="true"></i>
+										</a>
+										Partnerships
+									</p>
+									
+									<div class="" style="padding:0.5em 0;background: rgba(245, 245, 245, 0.05);"><!-- rgba(96, 94, 94, 0.05) -->
+										<a href="https://hackpad.com/ep/pad/static/ZWECNDBURJi" target="_blank" class="">
+											<img src="http://bikingtoronto.com/files/2014/07/logo.png" alt="hackbikeshareTO" style="width:inherit;height:6em;margin:0 auto;display:block;"/>
+										</a>
+									</div>
+								</div>	
+								<!-- /.demo content -->
+								
+								<!-- core content -->
+								<div class="row demo content" style="width: 100%;padding:0.25em 0 0.25em 0;margin-bottom:0.25em;">
+									<p class="" style="font-family: 'Source Code Pro', monospace;letter-spacing:0.25em;font-size:60%;padding-bottom:0.5em;border-bottom:1px dotted rgba(245, 245, 245, 0.25);text-transform:uppercase;font-weight:bold;">
+									<a href="http://www.blogto.com/events/bike-share-cycling-hackathondesign-jam-and-free-community-events/" target="_blank">
+											<i class="fa fa-map-marker" aria-hidden="true"></i>
+										</a>
+										HackBikeShareTO
+									</p>
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 btn-group social hashtags" style="width:40%;padding-top:0.25em;float:right;">
+										
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uk-animation-hover uk-animation-fade demo youtube links" style="width:5%;height:5%;background-color:rgba(6,34,42,0);margin-top:-0.5em;color:rgba(6,34,42,0.5);visibility:;">
+											<a href="https://twitter.com/hashtag/hackbikeshareTO" target="_blank">
+												<i class="fa fa-twitter" aria-hidden="true"></i>
+											</a> 
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uk-animation-hover uk-animation-fade demo __ links" style="width:5%;height:5%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:1.5em;color:rgba(6,34,42,0.5);visibility:;">
+											<a href="https://www.instagram.com/explore/tags/hackbikeshareto/" target="_blank">
+												<i class="fa fa-instagram" aria-hidden="true"></i>
+											</a> 
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uk-animation-hover uk-animation-fade demo __ links" style="width:5%;height:5%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:1.5em;color:rgba(6,34,42,0.5);visibility:;">
+											<a href="https://www.facebook.com/search/top/?q=hackbikeshareTO" target="_blank">
+												<i class="fa fa-facebook" aria-hidden="true"></i>
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uk-animation-hover uk-animation-fade demo __ links" style="width:5%;height:5%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:1.5em;color:rgba(6,34,42,0.5);margin-right:-0.5em;visibility:;">
+											<a href="https://plus.google.com/s/hackbikeshareTO/top" target="_blank">
+												<i class="fa fa-google-plus" aria-hidden="true"></i>
+											</a> 
+										</div>
+									</div>
+								</div>	
+								<!-- /.demo content -->
+								
+								<!-- subcontent media -->
+								<!--div class="row demo content" style="width: 100%;font-family:'Source Code Pro', monospace;word-spacing:0.25em;font-weight:bold;font-size:60%;margin-bottom:-2em;height:50%;">
+									<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JuswNDb7qkM?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen style="padding:0;margin:0;height:47.5%;width:100%;max-width:100%"></iframe>
+									<iframe src="" style="padding:0;margin:0;height:50%;width:100%;max-width:100%"></iframe>
+								</div-->
+								<!-- /.demo subcontent media -->
+								
+								<!-- Hashtags -->
+								<div class="row demo hastags" style="width: 100%;font-family:'Quicksand',sans-serif;word-spacing:0.5em;font-weight:normal;font-size:40%;margin-bottom: -3.5em;color:rgba(241, 241, 243, 0.55);">
+									<p class="" style="line-height:1.75em;text-transform:uppercase;letter-spacing:0.1em;">
+										#wearable #hardware #software #3dprinting #haptics #productdesign #android #opendatainstitute #opendata #bikeshare #arup #techgirlscanada #codi #hackathon #bitmakerlabs #DavidSocknacki
+									</p>
+								</div>
+								<!-- /.demo subcontent -->
+								
+								<!-- social media -->
+								<div class="row demo social" style="width: 100%;margin-bottom:0;text-align:center;text-transform:uppercase;border-top:2px solid rgba(238,238,238,0.01);padding:1.5em 0 0.1em 0;">
+									
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 btn-group demo social links">
+										
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 btn JSON" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;color:rgba(6,34,42,0.5);margin-left:-0.5em;visibility:;">
+											<a class="btn json" href="http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=ad3cb6b6ae92b310VgnVCM10000071d60f89RCRD" target="_blank">
+												<i class="fa fa-file-code-o" aria-hidden="true"></i>
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 btn " style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:;">
+											<a class="btn pdf" href="http://www.opendataresearch.org/dl/symposium2015/odrs2015-paper35.pdf" target="_blank">
+												<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 btn sponsor" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:;">
+											<a class="btn press blog" href="http://www.naomifreeman.com/bike-share-hackathon/" target="_blank">
+												<i class="fa fa-font" aria-hidden="true"></i>
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 btn " style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:hidden;">
+											
+										</div>
+										
+									</div>
+									
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 btn-group demo social rechts">
+										
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 btn blog" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);">
+											<a class="btn reddit" href="https://www.reddit.com/r/toronto/comments/2dt6r5/david_socknacki_stopped_by_our_hackathon_today/" target="_blank">
+												<i class="fa fa-reddit-alien" aria-hidden="true"></i>
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 btn sponsor" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);">
+											<a class="btn sponsor" href="http://www.techgirls.ca/press/bikesharehackathon/" target="_blank">
+												<i class="fa fa-eye" aria-hidden="true"></i>
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 btn twitter" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);">
+											<a class="btn twitter" href="#">
+												 <i class="fa fa-twitter" aria-hidden="true"></i>
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 btn heart" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);margin-right:-0.5em;">
+											 <a class="btn like" href="#">
+												<i class="fa fa-heart" aria-hidden="true"></i>
+											</a>
+										</div>
+										
+									</div>
+								</div>
+								<!-- /.demo social -->
+									
+								<!-- platform link -->
+								<div class="row demo press btn" style="width: 100%;margin-bottom:0;text-align:center;margin-top:1em;text-transform:uppercase;">
+									<a href="proj/bikeshare_arup/index.html" target="_blank" class="btn" style="letter-spacing:0.5em;font-size:70%;width:50%;margin-left:0;float:left;background-color:rgba(6,34,42,0.5);color:rgba(238,238,238,1);padding:0.5em 1em;">
+										Platform
+									</a>
+								</div>
+								<!-- /.demo press -->
+								
+							</div>
+							<!-- /.demo content rechts -->		
+							
+						</div><!-- /.row demo -->
+						
+					</div><!-- /.container -->	
+				</section>
+				<!-- #Press BikeShare -->
+				
+				<!-- Press Newspaper -->
+				<section id="press-wearable-newspaper" class="demo desktop hide-mobile category project">
+					<div class="container desktop hide-mobile category project" style="width:100%;height:100%;">
+						
+						<!-- demo content -->
+						<div class="row demo" style="width: 100%;margin-top:-0.5em;">
+							
+							<a href="https://www.metronews.ca/news/toronto/2014/08/22/what-can-bike-share-data-tell-us-about-toronto.html" target="_blank">
+								<!-- iframe demo -->
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 demo links" style="width:49.75%;height:19.5em;background-image:url('assets/img/iphone6.png');background-repeat:no-repeat;background-size:73%;background-position:center left;">
+
+									<iframe width="321em" height="556em" src="assets/press/MetroNewsCa-What_can_BikeShare_data_tell_us_about_TO-mobile.jpg" style="margin-left:-6.27em;margin-top:1.8em;"></iframe>
+
+								</div>
+								<!-- /.demo iframe -->
+							</a>
+							
+							<!-- Press header -->
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 demo content rechts" style="width:49.75%;height:19.5em;margin-left:-2.25em;letter-spacing:0.05em;text-align:left;font-size:80%;">
+								
+								<!-- Press title -->
+								<div class="row demo title" style="width: 100%;margin-top:.25em;margin-bottom:0;border-bottom:2px solid rgba(238,238,238,0.25);">
+									<h2 class="" style="padding:0 3%;text-transform:uppercase;letter-spacing:0.5em;text-align:left;font-size:100%;color:rgba(245,245,245,0.5);font-family:'Futura', sans-serif;">
+									<i class="fa fa-newspaper-o" aria-hidden="true"></i>Press
+									</h2>
+								</div>
+								<!-- /.demo title -->
+								
+								<!-- Reach Out + Goodies -->
+								<div class="row demo reachout btn" style="width: 100%;margin-bottom:0;text-align:center;text-transform:uppercase;">
+									
+									<!-- reference + goodies -->
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 btn-group demo goodies links" style="padding-top:0.65em;margin-right: 1.15em;width:43%;float:left;">
+										
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 tech bike" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);margin-left:-0.25em;visibility:;">
+											<i class="fa fa-bicycle" aria-hidden="true"></i>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 tech android" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:;">
+											<i class="fa fa-android" aria-hidden="true"></i>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 tech mcu" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:;">
+											<i class="fa fa-microchip" aria-hidden="true"></i>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 tech ble" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:;">
+											<i class="fa fa-bluetooth-b" aria-hidden="true"></i>
+										</div>
+										
+									</div>
+									
+									<!-- Reach Out -->
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 links">
+										<a href="#" class="btn" style="letter-spacing:0.25em;font-size:70%;width:100%;background-color:rgba(238,238,238,0.25);color:rgba(6,34,42,0.5);padding:0.5em 1em;float:right;">
+										reach out
+										</a>
+									</div>
+									
+								</div>
+								<!-- /.demo reachout -->
+								
+								<!-- core content -->
+								<div class="row demo content" style="width: 100%;">
+									<p class="" style="letter-spacing:0.05em;margin-bottom:9px;">
+										"The idea was to bring our data forward and see what people can do to get more people riding bikes in the city."
+									</p>
+									<a href="https://twitter.com/biancawylie" target="_blank" class="" style="font-family:'Source Code Pro', monospace;word-spacing:0.25em;font-weight:bolder;font-size:45%;background:rgba(0,0,0,0.2);padding:1.5% 3%;">
+										- Bianca Wylie, BikeShare Hackathon Organizer
+									</a>
+									<!--a href="http://www.metronews.ca/news/toronto/2014/08/22/what-can-bike-share-data-tell-us-about-toronto.html" target="_blank">
+										<img src="http://www.chutneychefs.com/wp-content/uploads/2015/12/metro-logo.png" style="width:3.35em;height:0.68em;padding-right:0.5em;opacity:0.25;float:right;"/>
+									</a-->
+								</div>
+								<!-- /.demo content -->
+								
+								<!-- subcontent media -->
+								<!--div class="row demo content" style="width: 100%;font-family:'Source Code Pro', monospace;word-spacing:0.25em;font-weight:bold;font-size:60%;margin-top:1em;">
+									<iframe width="560" height="315" src="assets/mov/20150621_ConnieLeung_GoogleGlass_TObikepath.mp4" style="padding:0;margin:0;height:47.5%;width:100%;max-width:100%"></iframe>
+									<frame src="" style="padding:0;margin:0;height:50%;width:100%;max-width:100%"></iframe>
+								</div-->
+								<!-- /.demo subcontent media -->
+								
+								<!-- subcontent -->
+								<div class="row demo content" style="width: 100%;font-family:'Source Code Pro', monospace;word-spacing:0.25em;font-weight:bold;font-size:60%;margin:1.25em 0 -1.25em 0;">
+									<p class="" style="">
+										+Sie können diese Daten erneut senden, aber auf diese Weise wiederholen Sie jede Aktion dieser Seite zuvor durchgeführt.
+									</p>
+								</div>
+								<!-- /.demo subcontent -->
+								
+								<!-- Hashtags -->
+								<div class="row demo hastags" style="width: 100%;font-family:'Quicksand',sans-serif;word-spacing:0.5em;font-weight:normal;font-size:40%;margin-bottom: -3.5em;color:rgba(241, 241, 243, 0.55);padding-top:1em;">
+									<p class="" style="line-height:1.75em;text-transform:uppercase;letter-spacing:0.1em;">
+										#wearable #hardware #software #3dprinting #haptics #productdesign #android #opendatainstitute #odi #cityoftoronto #torontoopendata #mozilla #makewebnotwar #techgirlscanada #bikeshare #hackathon #bitmakerlabs  
+									</p>
+								</div>
+								<!-- /.demo subcontent -->
+								
+								<!-- social media -->
+								<div class="row demo social" style="width: 100%;margin-bottom:0;text-align:center;text-transform:uppercase;border-top:2px solid rgba(238,238,238,0.01);padding:1.5em 0 0.1em 0;">
+									
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 btn-group demo social links">
+										
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uk-animation-hover uk-animation-fade demo twitter links" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:hidden;">
+											 <a class="btn " href="#">
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uk-animation-hover uk-animation-fade demo twitter links" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:hidden;">
+											 <a class="btn " href="#">
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uk-animation-hover uk-animation-fade demo share links" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:hidden;">
+											 <a class="btn " href="#">
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uk-animation-hover uk-animation-fade demo heart links" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:hidden;">
+											 <a class="btn " href="#">
+											</a>
+										</div>
+										
+									</div>
+									
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 btn-group demo social rechts">
+										
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uk-animation-hover uk-animation-fade demo twitter links" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:hidden;">
+											<a class="btn dribbble" href="#">
+												<i class="fa fa-dribbble" aria-hidden="true"></i>
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uk-animation-hover uk-animation-fade demo twitter links" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);visibility:hidden;">
+											 <a class="btn press " href="">
+												<i class="fa fa-globe" aria-hidden="true"></i>
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uk-animation-hover uk-animation-fade demo share links" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);">
+											 <a class="btn twitter" href="#">
+												 <i class="fa fa-twitter" aria-hidden="true"></i>
+											</a>
+										</div>
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 uk-animation-hover uk-animation-fade demo heart links" style="width:25%;height:25%;background-color:rgba(6,34,42,0);margin-top:-0.5em;padding-left:2px;color:rgba(6,34,42,0.5);">
+											 <a class="btn like" href="#">
+												<i class="fa fa-heart" aria-hidden="true"></i>
+											</a>
+										</div>
+										
+									</div>
+								</div>
+								<!-- /.demo social -->
+									
+								<!-- article link -->
+								<div class="row demo press btn" style="width: 100%;margin-bottom:0;text-align:center;margin-top:0.5em;text-transform:uppercase;">
+									<a href="http://www.metronews.ca/news/toronto/2014/08/22/what-can-bike-share-data-tell-us-about-toronto.html" target="_blank" class="btn" style="letter-spacing:0.5em;font-size:70%;width:50%;margin-left:0;float:left;background-color:rgba(6,34,42,0.5);color:rgba(238,238,238,1);padding:0.5em 1em;">
+										Article
+									</a>
+								</div>
+								<!-- /.demo press -->
+								
+							</div>
+							<!-- /.demo content rechts -->		
+							
+						</div><!-- /.row demo -->
+						
+					</div><!-- /.container -->	
+				</section>
+				<!-- #Press Newspaper -->
+			</section>
+			<!-- #wearable  -->
+				
+		</div><!-- /.slides -->
+
+		<!-- The navigational controls UI -->
+		<aside class="controls" style="display: block;">
+			<button class="navigate-left" aria-label="previous slide"></button>
+			<button class="navigate-right enabled" aria-label="next slide"></button>
+			<button class="navigate-up" aria-label="above slide"></button>
+			<button class="navigate-down" aria-label="below slide"></button>
+		</aside>
+		<!-- /.controls -->
+
+		<!-- Custom Navigations -->
+		<!-- Top Right Corner Hamburger -->
+		<aside class="control-menu" style="display: block;">
+			<a href="revealmenu.html" data-preview-link>
+				<img class="animated pulse" src="reveal/assets/img/plus.png" />
+			</a>
+		</aside>
+		<!-- /.control-menu -->
+
+		<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+		<div class="progress">
+			<span></span>
+		</div>
+		<!-- /.progress -->
+
+	</div>
+	<!-- /.reveal -->
+
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Reveal JavaScript -->
+	<script src="reveal/lib/js/head.min.js"></script>
+	<script src="reveal/js/reveal.js"></script>
+	<script src="reveal/js/bg-iframe.js"></script>
+
+	<!-- Overlay -->
+	<!--script src="reveal/lib/ven/overlay/modernizr.overlay.js"></script>
+	<script src="reveal/lib/ven/overlay/classie.js"></script>
+	<script src="reveal/lib/ven/overlay/overlay.js"></script-->
+		
+	<script>
+		var items = [
+				// chart-frame-1 line
+				{		selector: "#chart-frame-1", // iframe id
+						type: "line", // type can be pie/doughtnut/line/bar/radar/polararea
+						data: { // data []
+								labels: [
+										"H O M E  P A G E", 
+										"F O R M S", 
+										"T R U S T E D  S E C U R I T Y", 
+										"C O N T E N T  Q U A L I T Y", 
+										"S E A R C H", 
+										"H E L P  +  E R R O R  -  T O L E R A N C E", 
+										"S H A R A B I L I T Y"
+								],
+								datasets: [{ // background
+										label: "Dark",
+										fillColor: "rgba(51,51,51,0.5)",
+										strokeColor: "rgba(51,51,51,0.15)",
+										pointColor: "rgba(51,51,51,1)",
+										pointStrokeColor: "rgba(6,34,42,0.75)",
+										pointHighlightFill: "#fff",
+										pointHighlightStroke: "rgba(220,220,220,1)",
+										data: [65, 59, 80, 81, 56, 55, 40]/*,
+										fill: true,
+										lineTension: 0.1,
+										backgroundColor: "rgba(75,192,192,0.4)",
+										borderColor: "rgba(75,192,192,1)",
+										borderCapStyle: 'butt',
+										borderDash: [],
+										borderDashOffset: 0.0,
+										borderJoinStyle: 'miter',
+										pointBorderColor: "rgba(75,192,192,1)",
+										pointBackgroundColor: "#fff",
+										pointBorderWidth: 1,
+										pointHoverRadius: 5,
+										pointHoverBackgroundColor: "rgba(75,192,192,1)",
+										pointHoverBorderColor: "rgba(220,220,220,1)",
+										pointHoverBorderWidth: 2,
+										pointRadius: 1,
+										pointHitRadius: 10,
+										spanGaps: true*/
+									
+								}, { // foreground
+										label: "Blue",
+										fillColor: "rgba(151,187,205,0.22)",
+										strokeColor: "rgba(151,187,205,0.25)",
+										pointColor: "rgba(220,220,220,0.5)",
+										pointStrokeColor: "#fff",
+										pointHighlightFill: "#fff",
+										pointHighlightStroke: "rgba(151,187,205,1)",
+										data: [28, 48, 40, 19, 86, 27, 65]/*,
+										fill: true,
+										lineTension: 0.1,
+										backgroundColor: "rgba(75,192,192,0.4)",
+										borderColor: "rgba(75,192,192,1)",
+										borderCapStyle: 'butt',
+										borderDash: [],
+										borderDashOffset: 0.0,
+										borderJoinStyle: 'miter',
+										pointBorderColor: "rgba(75,192,192,1)",
+										pointBackgroundColor: "#fff",
+										pointBorderWidth: 1,
+										pointHoverRadius: 5,
+										pointHoverBackgroundColor: "rgba(75,192,192,1)",
+										pointHoverBorderColor: "rgba(220,220,220,1)",
+										pointHoverBorderWidth: 2,
+										pointRadius: 1,
+										pointHitRadius: 10,
+										spanGaps: true*/
+								}] // end of datasets
+						}, // end of data
+						options: {
+							responsive: true,
+							scaleFontSize: 10,
+							scaleFontColor: "rgba(220,220,220,0.75)",
+							scaleFontFamily: "'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif"
+						}
+		    }, // End of LINE #chart-frame-1
+				// chart-frame-2 bar
+		    { 	selector: "#chart-frame-2",
+		        type: "bar",
+		        data: {
+		            labels: ["January", "February", "March", "April", "May", "June", "July"],
+		            datasets: [{
+		                label: "My First dataset",
+		                fillColor: "rgba(220,220,220,0.5)",
+		                strokeColor: "rgba(220,220,220,0.8)",
+		                highlightFill: "rgba(220,220,220,0.75)",
+		                highlightStroke: "rgba(220,220,220,1)",
+		                data: [65, 59, 80, 81, 56, 55, 40]
+		            }, {
+		                label: "My Second dataset",
+		                fillColor: "rgba(151,187,205,0.5)",
+		                strokeColor: "rgba(151,187,205,0.8)",
+		                highlightFill: "rgba(151,187,205,0.75)",
+		                highlightStroke: "rgba(151,187,205,1)",
+		                data: [28, 48, 40, 19, 86, 27, 90]
+		            }]
+		        },
+		        options: {
+		            responsive: true,
+								scaleFontColor: "rgba(220,220,220,0.75)",
+								scaleFontFamily: "'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif"
+		        }
+		    }, 
+				// chart-frame-3 radar
+		    { 	selector: "#chart-frame-3",
+		        type: "radar",
+		        data: {
+		            labels: [
+										// 10 TOPICS
+										"I N F O  A R C H I T E C T U R E",
+										"V I S U A L  D E S I G N",
+										"F U N C T I O N A L I T Y",
+										"U S A B I L I T Y  +  A C C E S S I B I L I T Y",
+										"K E Y W O R D  S E A R C H",
+										"P L A T F O R M",
+										"T Y P O G R A P H Y",
+										"U S E R  I N T E R F A C E",
+										"C O N T E N T  S T R A T E G Y",
+										"I N T E R A C T I O N  D E S I G N"
+										/*"R E S P O N S I V E", 
+										"D A T A B A S E", 
+										"D E S I G N   &   C O L O R   S C H E M E", 
+										"K E Y    C O N T E N T", 
+										"N A V I G A T I O N", "E A S E  O F  U S E", 
+										"V I S U A L   G R A P H I C S"*/
+								],
+		            datasets: [{
+		                label: "Set Backs",
+									
+		                fillColor: "rgba(51,51,51,0.25)", // web shape bg clr
+		                strokeColor: "rgba(51,51,51,0.15)",
+										// "rgba(220,220,220,0.5)", // web shape outline
+		                pointColor: "rgba(51,51,51,1)", // dark dot
+									
+		                pointStrokeColor: "rgba(6,34,42,0.75)", // ?
+										pointHighlightFill: "#fff", // popup legend color swatch
+		                //pointHighlightStroke: "rgba(220,220,220,0.5)", // popup legend color swatch border
+										pointHoverBorderColor: "rgba(220,220,220,0.25)",
+		                data: [75, 56, 99, 29, 31, 81, 46, 55, 74, 34]
+		            }, {
+		                label: "New Features",
+		                fillColor: "rgba(151,187,205,0.32)",
+		                strokeColor: "rgba(151,187,205,0.25)",
+		                pointColor: "rgba(151,187,205,1)",
+		                pointStrokeColor: "#fff",
+		                pointHighlightFill: "#fff",
+		                pointHighlightStroke: "rgba(151,187,205,1)",
+		                data: [38, 68, 60, 19, 52, 35, 10, 96, 27, 54]
+		            }]
+		        },
+		        options: {
+		        } 
+		    }, 
+				// chart skills-inds custom
+				{ 	selector: "#skills-inds",
+		        type: "radar",
+		        data: {
+		            labels: [
+										// 10 Items
+										"F R E E H A N D   C O N C E P T U A L I S A T I O N",
+										"E R G O N O M I C   +   H U M A N   F A C T O R S", //   +   U S A B I L I T Y   R E S E A R C H",
+										"A N A L O G   T E C H N I C A L   B L U E P R I N T I N G",
+										"C A D   M O D E L L I N G",
+										"F I N I T E   E L E M E N T   A N A Y L S I S   (  F A E  )",
+										"S C A L E D   P H Y S I C A L   P R O T O T Y P I N G",
+										//"S H O P   T O O L S",
+										"W O O D   -   P O L Y M E R   -   M E T A L   F A B", // R I C A T I O N",
+										"P R O D U C T I O N   S A M P L E   T E S T I N G",
+										"I . P .   F O C U S E D   S M A L L - S C A L E    M A N U F .", // A C T U I N G"
+								],
+		            datasets: [{
+		                label: "Dark",
+									
+		                fillColor: "rgba(51,51,51,0.25)", // web shape bg clr
+		                strokeColor: "rgba(51,51,51,0.15)", // web shape outline
+		                pointColor: "rgba(51,51,51,1)", // dark dot
+									
+		                pointStrokeColor: "rgba(6,34,42,0.75)", 
+										pointHighlightFill: "#fff", // popup legend color swatch
+										pointHoverBorderColor: "rgba(220,220,220,0.25)",
+		                data: [65, 59, 90, 81, 56, 40, 24, 48, 95]
+		            } /*, {
+		                label: "Blue",
+		                fillColor: "rgba(151,187,205,0.32)",
+		                strokeColor: "rgba(151,187,205,0.25)",
+		                pointColor: "rgba(151,187,205,1)",
+		                pointStrokeColor: "#fff",
+		                pointHighlightFill: "#fff",
+		                pointHighlightStroke: "rgba(151,187,205,1)",
+		                data: [28, 48, 40, 19, 96, 27, 100, 50, 38, 62]
+		            } */ ]
+		        },
+		        options: {
+		        } 
+		    }, 
+				// chart skills-wearable custom
+				{ 	selector: "#skills-wearable",
+		        type: "radar",
+		        data: {
+		            labels: [
+										// 11 Items
+										"R   S T A T S   A N A L Y S I S",
+										"E R G O N O M I C   +   H U M A N   F A C T O R S", 
+										"A N A L O G   T E C H N I C A L   B L U E P R I N T I N G",
+										"C A D   M O D E L L I N G",
+										"F I N I T E   E L E M E N T   A N A Y L S I S   (  F A E  )",
+										"3 D   P R I N T E D   P R O T O T Y P I N G",
+										"T E X T I L E   E M B E D D E D   E L E C T R O N I C S",
+										"H A P T I C   +   G Y R O S C O P E   S E N S O R S",
+										"A N D R O I D", 
+										"R U B Y   +   J A V A",
+										"G O O G L E   M A P S   +   B I K E S H A R E   A P I"
+								],
+		            datasets: [{
+		                label: "Dark",
+									
+		                fillColor: "rgba(51,51,51,0.25)", // web shape bg clr
+		                strokeColor: "rgba(51,51,51,0.15)", // web shape outline
+		                pointColor: "rgba(51,51,51,1)", // dark dot
+									
+		                pointStrokeColor: "rgba(6,34,42,0.75)", 
+										pointHighlightFill: "#fff", // popup legend color swatch
+										pointHoverBorderColor: "rgba(220,220,220,0.25)",
+		                data: [65, 59, 90, 81, 56, 40, 24, 48, 95, 20, 77]
+		            } /*, {
+		                label: "Blue",
+		                fillColor: "rgba(151,187,205,0.32)",
+		                strokeColor: "rgba(151,187,205,0.25)",
+		                pointColor: "rgba(151,187,205,1)",
+		                pointStrokeColor: "#fff",
+		                pointHighlightFill: "#fff",
+		                pointHighlightStroke: "rgba(151,187,205,1)",
+		                data: [28, 48, 40, 19, 96, 27, 100, 50, 38, 62]
+		            } */ ]
+		        },
+		        options: {
+		        } 
+		    }, 
+				{ 	selector: "#chart-csv",
+		        type: "pie",
+		        url: '/data/monthly_temps.csv'
+		    },
+								 
+		]; // items Chart.js object item array + var items
+		
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			// Display controls in the bottom right corner
+			controls: true,
+
+			// Display a presentation progress bar
+			progress: true,
+
+			// If true; each slide will be pushed to the browser history
+			history: true,
+
+			center: true,
+
+			// Loops the presentation, defaults to false
+			loop: true,
+
+			// Flags if mouse wheel navigation should be enabled
+			mouseWheel: true,
+
+			// Apply a 3D roll to links on hover
+			rollingLinks: false,
+
+			// UI style
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// theme: query.theme || 'default', // default/neon
+
+			// Transition style
+			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+			// Chart.js
+			chart: { items: items },
+			
+			// Optional reveal.js plugins
+
+			dependencies: [
+				{
+					src: 'reveal/lib/js/classList.js'
+					, condition: function () {
+						return !document.body.classList;
+					}
+				}
+				, {
+					src: 'reveal/plugin/markdown/marked.js'
+					, condition: function () {
+						return !!document.querySelector('[data-markdown]');
+					}
+				}
+				, {
+					src: 'reveal/plugin/markdown/markdown.js'
+					, condition: function () {
+						return !!document.querySelector('[data-markdown]');
+					}
+				}
+					, //{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{
+					src: 'reveal/plugin/zoom-js/zoom.js'
+					, async: true
+				}
+				, /*{
+					src: 'reveal/plugin/notes/notes.js'
+					, async: true
+				}
+				,*/ {
+					src: 'reveal/plugin/external/external.js'
+					, async: true
+				}
+				, {
+					src: 'reveal/plugin/wave/webcam-swiper-0.1.js'
+					, async: true
+				} ,
+						// Chart.min.js
+						{ src: 'reveal/plugin/chartjs/Chart.min.js', async: true },
+						// the plugin
+						{ src: 'reveal/plugin/chartjs/charted.js', async: true },
+						//{ src: 'js/playground.js', async: true },
+				]
+		});
+
+		Reveal.addEventListener("slidechanged",function(){
+			setTimeout(function(){ // Needed because the charter.js isnt loaded and executed by that time.
+				// To access them
+				// The RevealChart contains iframe ids as properties (replacing '-' with '_')
+				console.log(RevealChart.chart_frame_3.canvas);
+			},500);
+		},true); //false
+	</script>  
+	
+	<!-- Chart.js -->
+	<script type="text/javascript" src="reveal/plugin/chartjs/Chart.min.js"></script>
+	<script type="text/javascript" src="reveal/plugin/chartjs/charted.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:600);
+
+body{
+  width:100%; 
+  margin:0;
+  overflow:hidden;
+  -webkit-user-select:none;
+     -moz-user-select:none;
+      -ms-user-select:none;
+          user-select:none;
+  cursor:pointer;
+}
+#info {
+  border-radius: 3px;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width:25em;
+  padding:1em;
+  text-align:center;
+  line-height:1.3em;
+  -webkit-transition:right 0.3s cubic-bezier(.65,.18,.79,.3);
+  transition: right 0.3s cubic-bezier(.65,.18,.79,.3);
+  font-family: 'Raleway', sans-serif;
+
+}

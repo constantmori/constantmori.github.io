@@ -1,0 +1,108 @@
+body {
+  /* height: 100vh;*/
+  /*display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+	overflow-y: hidden; 
+	overflow-x: hidden;*/
+	background-color: transparent;
+	margin: 0 auto;
+	display: block;
+}
+
+.wrap {
+  overflow: hidden;
+  position: absolute; /*relative;*/
+  /*width: 100%;
+  height: 100%;*/
+  /*padding: 11vh 5vw;
+  margin: 0;
+  bottom: 0;
+  top: 0;*/
+  /*background-image: -webkit-linear-gradient(296deg, #835EFF 0%, #FF008D 100%);
+  background-image: linear-gradient(-206deg, #835EFF 0%, #FF008D 100%);*/
+	/*margin: 5% 0 0 10%;*/
+}
+/*.wrap .text {
+  z-index: 1;
+  position: absolute;
+  top: 15px;
+  left: -15px;
+  background: url();
+}*/
+canvas.two {
+	visibility: hidden;
+	display: none;
+	height: 0;
+}
+
+canvas {
+	/*border: 1px solid aqua;*/
+	
+	/*padding: 6vw 1vh;
+	width: 75%;
+	height: 90%;*/
+}
+
+
+/*@media only screen and (max-width: 320px) {
+	canvas {
+		width: 19.5em;
+    height: 35em;
+    margin: 0;
+	}
+}*/
+/*@media only screen and (max-width: 375px) {
+	canvas {
+    width: 23em;
+    height: 35em;
+	}
+}*/
+@media only screen and (max-width: 425px) {
+	canvas {
+		width: 26.45em;
+    height: 35em;
+	}
+}
+
+
+
+
+@media only screen and (max-device-width: 480px) and (min-device-width: 320px) {
+	canvas {
+		width: 19.5em;
+    height: 35em;
+	}
+}
+@media (max-width: 510px) and (min-width: 321px)
+	@media (min-width: 511px) {
+		canvas {
+			width: 31em;
+			height: 35em;
+		}
+}
+@media (min-width: 675px) {
+		canvas {
+		width: 42em;
+		height: 97vh;
+	}
+}
+@media (min-width: 768px) {
+	canvas {
+		width: 47em;
+		height: 98vh;
+	}
+}
+@media (min-width: 1024px) {
+	canvas {
+		width: 63em; /*56em;*/
+		height: 95vh;
+	}
+}
+@media (min-width: 1200px) {
+	canvas {
+		width: 88em;
+		height: 98vh;
+	}
+}

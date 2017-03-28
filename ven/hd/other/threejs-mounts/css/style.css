@@ -1,0 +1,4 @@
+/* Remove overflow */
+body{
+  margin: 0px; background-color: transparent; /*#222222;*/ overflow: hidden;
+}

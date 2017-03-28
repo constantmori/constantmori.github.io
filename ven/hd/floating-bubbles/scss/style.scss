@@ -1,0 +1,28 @@
+body {
+ /* height: 100vh;*/
+  display: flex;
+  background-color:#333;
+}
+.wrap {
+  overflow: visib;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 11vh 5vw;
+  margin: 0;
+  bottom: 0;
+  top: 0;
+  background-image: linear-gradient(-206deg, #835EFF 0%, #FF008D 100%);
+  .text {
+    z-index: 1;
+    position: absolute;
+    top: 15px;
+    left: -15px;
+    background: url();
+  }
+}
+.text,
+canvas {
+  width: 100%;
+  height: 100%;
+}
