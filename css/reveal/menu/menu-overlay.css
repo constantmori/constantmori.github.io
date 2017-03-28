@@ -1,14 +1,14 @@
 
 /*********************************************
  * FULLSCREEN MENU OVERLAY
- * 
- * Must be paired with: 
+ *
+ * Must be paired with:
  *
  * reveal-mod-menu.css
  * theme/2001-mod-menu.css
  * styling.css
  *********************************************/
- 
+
 /* GENERAL OVERLAY */
 
 .reveal .control-menu-overlay {
@@ -73,13 +73,13 @@ nav.menu {
     font-weight: lighter;
     color: rgba(255,250,250,0.5);
     /*margin-bottom: 1.5em;*/
-    height: 4.5em;
-    
+    height: 5.5em;
+
     /* When style is centered */
         letter-spacing: 0.1em;
         font-size: 115%;
         /*line-height: 2.25em;*/
-    
+
     /* When style is on the left */
         /*padding-left: 1.5em;
         letter-spacing: 0.1em;
@@ -133,7 +133,7 @@ ul.nav li:hover {
 
 .nav a.fade-Out {
     text-decoration: none;
-    
+
     /* When style is centered */
         /*background-color: rgba(44, 74, 232,0.8);
         padding: 0.3em 1em;
@@ -142,17 +142,17 @@ ul.nav li:hover {
         padding: 0.3em 1em;
         /*color: rgba(252,252,252,0.4); */
         color: rgba(182,179,202,1);
-            
+
     /* When style is on the left */
         /*padding: .2em 1em;
         color: rgba(19,218,236,0.9);
         background-color: rgba(27,145,255,0.9);*/
-    
+
     animation: fade-Out 0.5s; /* IE 10+, Fx 29+ */
     animation-timing-function: ease-out;
 }
 
-@keyframes fade-Out { 
+@keyframes fade-Out {
     from {
         opacity: 0;
         background-color: rgba(44, 74, 232,0.8);
@@ -185,7 +185,7 @@ a.nav:hover {
         letter-spacing: normal;
         color: rgba(61, 252, 216, 0.9);
         opacity: 1;*/
-    
+
     /* When style is on the left */
         color: rgba(44, 74, 232, 1); /*0.7);*/
         background-color: rgba(220, 220, 220, 1);
@@ -195,7 +195,7 @@ a.nav:hover {
 
 nav.menu.fullscreen a {
     color: rgba(19,218,236,0.9);
-} 
+}
 
 /* INFO */
 
@@ -233,7 +233,7 @@ a.info.fade-In {
     animation-timing-function: ease-in;
 }
 
-@keyframes fade-In { 
+@keyframes fade-In {
     from {
         opacity: 0;
         color: rgba(191, 235, 239, 0.05);
@@ -254,9 +254,9 @@ a.info.fade-In {
     /* background-color: rgba(220,220,220,0.2); */
     bottom: 0;
     /*margin-bottom: -2.5em;*/
-    margin-bottom: -1em;
+    margin-top: -10em;
     position: fixed;
-    opacity: 0.25;
+    opacity: 0.45;
 }
     .footSection.left {
         float: left;
@@ -288,7 +288,7 @@ a.info.fade-In {
         text-align: right;
         background-color: rgba(220,220,220,0.0);
         height: 0.75em;
-        /*right: 0; */  
+        /*right: 0; */
     }
         h6.data.contact {
             margin-bottom: 0;
@@ -320,11 +320,11 @@ h2.headers {
     padding-bottom: 0.15em;
     /*border-bottom: 0.05em solid rgba(247, 2, 82, 0.4);
     padding: 0 1em 0.3em 0.3em; */
-    
+
     color: rgba(220,220,220,0.9);
     /* color: rgba(6,144,243,0.9); */
     /*color: rgba(251,4,171,0.7);*/
-    
+
     font-family: "Tw Cen MT", "Futura", "Montserrat", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 3em;
     letter-spacing: 0.05em;
@@ -332,7 +332,7 @@ h2.headers {
         text-transform: capitalize;
         /*text-align: center;*/
         margin-bottom: 0.3em;
-    
+        margin-top: -0.15em;
     /*When style is on the left */
         /* margin-left: 0.75em; */
         /* margin-right: 1em; */
@@ -380,4 +380,3 @@ h6, h6.tinyPrint, h6.contact {
 .mono {
     font-family: 'Monotype', 'Courier New', 'Cutivemono', monospace;
 }
-
