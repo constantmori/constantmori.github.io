@@ -1,0 +1,124 @@
+.animated_div {
+    width: 100px;
+    height: 60px;
+    background: #1572B6;
+    color: #ffffff;
+    position: absolute;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 20px;
+    float: left;
+    margin: 20px auto;
+    -webkit-transition: -webkit-transform 1s,opacity 1s,background 1s,width 1s,height 1s,font-size 1s;
+    -webkit-border-radius: 5px;
+    -o-transition-property: width,height,-o-transform,background,font-size,opacity;
+    -o-transition-duration: 1s,1s,1s,1s,1s,1s;
+    -moz-transition-property: width,height,-o-transform,background,font-size,opacity;
+    -moz-transition-duration: 1s,1s,1s,1s,1s,1s;
+    transition-property: width,height,transform,background,font-size,opacity;
+    transition-duration: 1s,1s,1s,1s,1s,1s;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+.animated_div:hover {
+    opacity: 1;
+    background: #E44D26;
+    width: 150px;
+    height: 100px;
+    font-size: 35px;
+}
+
+#g-usetag{
+	stroke-width: 6;
+	stroke:#F2385A;
+	-webkit-animation: gstrokeanim 2s infinite linear;
+	        animation: gstrokeanim 2s infinite linear;
+}
+@-webkit-keyframes gstrokeanim {
+	0%{stroke-width: 6;}
+	50%{stroke-width: 0;}
+	100%{stroke-width: 6;}
+}
+@keyframes gstrokeanim {
+	0%{stroke-width: 6;}
+	50%{stroke-width: 0;}
+	100%{stroke-width: 6;}
+}
+.svgtext {
+  fill: none;
+  stroke-width: 6;
+  stroke-linejoin: round;
+  stroke-dasharray: 70 330;
+  stroke-dashoffset: 0;
+-webkit-animation: stroke 6s infinite linear;
+  animation: stroke 6s infinite linear;
+}
+.svgtext:nth-child(5n + 1) {
+  stroke: #F2385A;
+  -webkit-animation-delay: -1.2s;
+  animation-delay: -1.2s;
+}
+.svgtext:nth-child(5n + 2) {
+  stroke: #F5A503;
+  -webkit-animation-delay: -2.4s;
+  animation-delay: -2.4s;
+}
+.svgtext:nth-child(5n + 3) {
+  stroke: #E9F1DF;
+  -webkit-animation-delay: -3.6s;
+  animation-delay: -3.6s;
+}
+.svgtext:nth-child(5n + 4) {
+  stroke: #56D9CD;
+  -webkit-animation-delay: -4.8s;
+  animation-delay: -4.8s;
+}
+.svgtext:nth-child(5n + 5) {
+  stroke: #3AA1BF;
+  -webkit-animation-delay: -6s;
+  animation-delay: -6s;
+}
+@-webkit-keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+/*v animation*/
+
+.svgtext1 {
+  fill: none;
+  stroke-linejoin: round;
+  stroke-dasharray:1160;
+  stroke-dashoffset: 1160;
+	-webkit-animation: vstroke 6s infinite linear;
+  animation: vstroke 6s infinite ease-in-out;
+}
+.svgtext1:nth-child(3n+3){
+	stroke-width: 4;
+	stroke: #3AA1BF;
+	-webkit-animation-delay: 0s;
+  animation-delay: 00s;
+}
+.svgtext1:nth-child(3n+1){
+	stroke: yellow;
+	stroke-width: 1;
+	-webkit-animation-delay: .2s;
+  animation-delay: -.2s;
+}
+.svgtext1:nth-child(3n+2){
+	stroke: red;
+	stroke-width: 2;
+	-webkit-animation-delay: -.1s;
+  animation-delay: -.1s;
+}
+@-webkit-keyframes vstroke {
+	100%{stroke-dashoffset:0;}
+}
+@keyframes vstroke {
+	100%{stroke-dashoffset:0;}
+}
