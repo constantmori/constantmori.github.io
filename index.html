@@ -1938,7 +1938,7 @@
 		<!-- Top Right Corner Hamburger -->
 		<aside class="control-menu" style="display: block;">
 			<a href="menu.html" data-preview-link>
-				<img class="animated pulse" src="reveal/assets/img/plus.png" />
+				<img class="animated pulse" src="assets/img/plus.png" />
 			</a>
 		</aside>
 		<!-- /.control-menu -->
@@ -1959,9 +1959,9 @@
 	<script src="js/bootstrap.min.js"></script>
 
 	<!-- Reveal JavaScript -->
-	<script src="reveal/lib/js/head.min.js"></script>
-	<script src="reveal/js/reveal.js"></script>
-	<script src="reveal/js/bg-iframe.js"></script>
+	<script src="js/reveal/lib/head.min.js"></script>
+	<script src="js/reveal/reveal.js"></script>
+	<script src="js/reveal/bg-iframe.js"></script>
 
 	<!-- Overlay -->
 	<!--script src="reveal/lib/ven/overlay/modernizr.overlay.js"></script>
@@ -2345,26 +2345,26 @@
 
 			dependencies: [
 				{
-					src: 'reveal/lib/js/classList.js'
+					src: 'js/reveal/lib/classList.js'
 					, condition: function () {
 						return !document.body.classList;
 					}
 				}
 				, {
-					src: 'reveal/plugin/markdown/marked.js'
+					src: 'ven/reveal-plugin/markdown/marked.js'
 					, condition: function () {
 						return !!document.querySelector('[data-markdown]');
 					}
 				}
 				, {
-					src: 'reveal/plugin/markdown/markdown.js'
+					src: 'ven/reveal-plugin/markdown/markdown.js'
 					, condition: function () {
 						return !!document.querySelector('[data-markdown]');
 					}
 				}
 					, //{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 				{
-					src: 'reveal/plugin/zoom-js/zoom.js'
+					src: 'ven/reveal-plugin/zoom-js/zoom.js'
 					, async: true
 				}
 				, /*{
@@ -2372,17 +2372,17 @@
 					, async: true
 				}
 				, */{
-					src: 'reveal/plugin/external/external.js'
+					src: 'ven/reveal-plugin/external/external.js'
 					, async: true
 				}
 				, {
-					src: 'reveal/plugin/wave/webcam-swiper-0.1.js'
+					src: 'ven/reveal-plugin/wave/webcam-swiper-0.1.js'
 					, async: false
 				} ,
 						// Chart.min.js
-						{ src: 'reveal/plugin/chartjs/Chart.min.js', async: true },
+						{ src: 'ven/reveal-plugin/chartjs/Chart.min.js', async: true },
 						// the plugin
-						{ src: 'reveal/plugin/chartjs/charted.js', async: true },
+						{ src: 'ven/reveal-plugin/chartjs/charted.js', async: true },
 						//{ src: 'js/playground.js', async: true },
 				]
 		});
@@ -2397,8 +2397,8 @@
 	</script>
 
 	<!-- Chart.js -->
-	<script type="text/javascript" src="reveal/plugin/chartjs/Chart.min.js"></script>
-	<script type="text/javascript" src="reveal/plugin/chartjs/charted.js"></script>
+	<script type="text/javascript" src="ven/reveal-plugin/chartjs/Chart.min.js"></script>
+	<script type="text/javascript" src="ven/reveal-plugin/chartjs/charted.js"></script>
 
 
 </body>
