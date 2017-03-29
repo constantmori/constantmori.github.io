@@ -7100,7 +7100,7 @@ button.close {
 
 .modal-backdrop.in {
 	filter: alpha(opacity=50);
-	opacity: 1
+	opacity: 0
 	/* opacity: .5 */
 }
 
