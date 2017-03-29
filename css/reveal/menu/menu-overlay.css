@@ -299,6 +299,7 @@ a.info.fade-In {
                 margin-right: 0;
                 vertical-align: -webkit-baseline-middle;
                 text-align: center;
+                margin-top: -1.75em;
             }
             ul.contact a.data.email {
                 /*color: rgba(220,220,220,0.9);*/
