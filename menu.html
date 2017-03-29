@@ -199,7 +199,7 @@
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
+				controls: false,
 				progress: false,
 				history: false,
 				center: false,
@@ -210,8 +210,8 @@
 				dependencies: [
 					{ src: 'js/reveal/lib/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'ven/reveal-plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'ven/reveal-plugin/zoom-js/zoom.js', async: true },
-					{ src: 'ven/reveal-plugin/notes/notes.js', async: true }
+					//{ src: 'ven/reveal-plugin/zoom-js/zoom.js', async: true },
+					//{ src: 'ven/reveal-plugin/notes/notes.js', async: true }
 				]
 			});
 
