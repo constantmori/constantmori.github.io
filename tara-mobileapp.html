@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tara Android</title>
+        <title>Tara Android Concept</title>
         <style>
             body {
                 font-family: 'Cutivemono', monospace;
@@ -15,10 +15,40 @@
                 font-weight: bold;
                 font-size: 4em;
             }
+            #mobile-concept {}
+
+            #mobile-concept,
+            .outer-container {
+             width: 100%;
+             height: 100vh;/*96.5vh;*/
+            }
+
+            .outer-container {
+             /*border: 5px solid purple;*/
+             position: relative;
+             overflow: hidden;
+            }
+
+            .inner-container {
+             position: relative; /*absolute;*/
+             left: 0;
+             overflow-x: hidden;
+             overflow-y: scroll;
+            }
+
+            .inner-container::-webkit-scrollbar {
+             display: none;
+            }
         </style>
     </head>
     <body>
-				<img src="proj/tara/mobile-app-v2.png" width="100%" height="100%" alt="tara mobile app"/> 
+      <div class="outer-container">
+       <div class="inner-container">
+        <div id="mobile-concept">
+  				<img src="proj/tara/mobile-app-v2.png" alt="tara mobile app" style="width:100%"/>
+        </div>
+      </div>
+    </div>
 				<!--p>
             <a href="index.html">Back to slides</a> or <a href="javascript:more()">Point break</a>
         </p>
