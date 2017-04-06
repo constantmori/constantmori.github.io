@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html >
-<head>
-  <meta charset="UTF-8">
-  <title>Procedurally generated minimal environment</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style.css">
-<style>
-	body {
-		opacity: 1;
-		-webkit-filter:blur(3px);
-			-moz-filter: blur(3px);
-			-o-filter: blur(3px);
-			-ms-filter: blur(3px);
-		animation: fadein 2s;
-		transition: opacity 2s ease-in;
-	}
-	
-	body:hover {
-		opacity: 0.25;
-		-webkit-filter:blur(0.25px);
-			-moz-filter: blur(0.25px);
-			-o-filter: blur(0.25px);
-			-ms-filter: blur(0.25px);
-		animation: fadein 5s;transition: opacity 5s ease-in;
-	}
-	
-</style>
-  
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Procedurally generated minimal environment</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      html {
+        background-color: rgba(6,34,42,0.5);
+      }
+    	body {
+    		opacity: 1;
+    		-webkit-filter:blur(3px);
+    			-moz-filter: blur(3px);
+    			-o-filter: blur(3px);
+    			-ms-filter: blur(3px);
+    		animation: fadein 2s;
+    		transition: opacity 2s ease-in;
+    	}
+    	body:hover {
+    		opacity: 0.25;
+    		-webkit-filter:blur(0.25px);
+    			-moz-filter: blur(0.25px);
+    			-o-filter: blur(0.25px);
+    			-ms-filter: blur(0.25px);
+    		animation: fadein 5s;transition: opacity 5s ease-in;
+    	}
+    </style>
+  </head>
 
-<body>
-  <!-- Using Threejs & Jerome Etienne's Threex -->
-<script src='http://jeromeetienne.github.io/threex.terrain/examples/vendor/three.js/build/three-min.js'></script>
-<script src='http://jeromeetienne.github.io/threex.terrain/examples/vendor/three.js/examples/js/SimplexNoise.js'></script>
-<script src='http://jeromeetienne.github.io/threex.terrain/threex.terrain.js'></script>
-  
+  <body>
+    <!-- Using Threejs & Jerome Etienne's Threex -->
+    <!--script src='http://jeromeetienne.github.io/threex.terrain/examples/vendor/three.js/build/three-min.js'></script>
+    <script src='http://jeromeetienne.github.io/threex.terrain/examples/vendor/three.js/examples/js/SimplexNoise.js'></script>
+    <script src='http://jeromeetienne.github.io/threex.terrain/threex.terrain.js'></script-->
+    <script src="js/three-min.js"></script>
+    <script src="js/SimplexNoise.js"></script>
+    <script src="js/threex.terrain.js"></script>
+
     <script src="js/index.js"></script>
-
-</body>
+  </body>
 </html>

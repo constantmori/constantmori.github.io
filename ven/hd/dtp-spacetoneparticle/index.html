@@ -1,25 +1,49 @@
 <!DOCTYPE html>
 <html >
-<head>
-  <meta charset="UTF-8">
-  <title>Annoying tones</title>
+  <head>
+    <meta charset="UTF-8">
+    <title>Annoying tones</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-  body::-webkit-scrollbar,
-  canvas::-webkit-scrollbar {
-    display: none;
-    overflow: hidden;
-  }
-  </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      /*body::-webkit-scrollbar,
+      canvas::-webkit-scrollbar {
+        display: none;
+        overflow: hidden;
+      }*/
+      #sans-scroll,
+      .outer-container {
+       width: 100%;
+       height: 100vh;/*96.5vh;*/
+      }
+      .outer-container {
+       /*border: 5px solid purple;*/
+       position: relative;
+       overflow: hidden;
+      }
+      .inner-container {
+       position: relative; /*absolute;*/
+       left: 0;
+       overflow-x: hidden;
+       overflow-y: scroll;
+      }
+      .inner-container::-webkit-scrollbar {
+       display: none;
+      }
+    </style>
 
-</head>
+  </head>
 
-<body>
-  <canvas id="audio"></canvas>
+  <body>
+    <div class="outer-container">
+       <div class="inner-container">
+        <div id="sans-scroll">
+          <canvas id="audio"></canvas>
+        </div>
+      </div>
+    </div>
 
     <script src="js/index.js"></script>
-
-</body>
+  </body>
 </html>
