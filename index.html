@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="full" lang="en">
 
-<head>
+<head class="nikeACG">
 
 	<link rel="icon" href="https://emojipedia-us.s3.amazonaws.com/cache/06/ef/06ef6b773082d0e98439c4e0b8c9dee6.png">
 
@@ -59,8 +59,41 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-	
-	
+	<!-- script>
+			$(function($) {
+
+				$(".knob").knob({
+						draw : function () {
+
+							// "tron" case
+							if(this.$.data('skin') == 'tron') {
+
+								this.cursorExt = 0.3;
+
+								var a = this.arc(this.cv)  // Arc
+										, pa                   // Previous arc
+										, r = 1;
+
+								this.g.lineWidth = this.lineWidth;
+
+								this.g.beginPath();
+								this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
+								this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
+								this.g.stroke();
+
+								this.g.lineWidth = 2;
+								this.g.beginPath();
+								this.g.strokeStyle = this.o.fgColor;
+								this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+								this.g.stroke();
+
+								return false;
+						}
+					}
+				});
+			});
+	</script -->
+	<!-- script src="ven/jquery-knob/js/jquery.knob.js"></script -->
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<style>
@@ -409,14 +442,186 @@
 
 <body class="nikeACG">
 
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">
+					<img style="width:2em;height:2em;opacity:0.25;" src="http://emojipedia-us.s3.amazonaws.com/cache/06/ef/06ef6b773082d0e98439c4e0b8c9dee6.png"/> <!--🤖 🦄-->
+				</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="index.html#/digital" data-preview-link><i class="fa fa-window-minimize" aria-hidden="true"></i>Digital</a>
+					</li>
+          <li>
+						<a href="index.html#/ux" data-preview-link><i class="fa fa-window-minimize" aria-hidden="true"></i>UX</a>
+					</li>
+          <li>
+						<a href="index.html#/physical" data-preview-link><i class="fa fa-window-minimize" aria-hidden="true"></i>Physical</a>
+					</li>
+					<!--li class="" style="">
+						<a href="index.html#/partnerships" data-preview-link>&#215; Clients</a>
+					</li-->
+					<!--li>
+						<a href="index.html#/workshops" data-preview-link>workhops</a>
+					</li-->
+					<!--li>
+						<a href="index.html#/what-we-do" data-preview-link><i class="fa fa-magic" aria-hidden="true"></i> Tools</a>
+					</li-->
+					<li>
+						<a href="index.html#/about" data-preview-link><i class="fa fa-asl-interpreting" aria-hidden="true"></i> About</a>
+					</li>
+          <li>
+						<a href="index.html#/tiny" data-preview-link>&#215; Imprint</a>
+					</li>
+					<li>
+						<a href="ctrl.html" data-preview-link><!--i class="fa fa-search-plus" aria-hidden="true"></i--> <i class="fa fa-keyboard-o" aria-hidden="true"></i> Site CTRLs</a>
+					</li>
+					<!--li>
+						<div class="collapse" id="collapseExample">
+						  <div class="well">
+						    <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+						  </div>
+						</div>
+						<a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">💩
+						</a>
+					</li-->
+					<!--li>
+						<button data-toggle="modal" data-target=".bs-example-modal-sm" style="margin-top:1.25em;">💩</button>
+						<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+						  <div class="modal-dialog modal-sm" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+						      </div>
+						      <div class="modal-body" style="font-size:xx-small;">
+										<div class="row">
+						          <div class="col-md-4">.col-md-4</div>
+						          <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+						        </div>
+										<br />
+						        <div class="row">
+						          <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+						        </div>
+										<br />
+						        <div class="row">
+						          <div class="col-sm-9">
+						            Level 1: .col-sm-9
+												<br />
+												<br />
+						            <div class="row">
+						              <div class="col-xs-8 col-sm-6">
+						                Level 2: .col-xs-8 .col-sm-6
+						              </div>
+						              <div class="col-xs-4 col-sm-6">
+						                Level 2: .col-xs-4 .col-sm-6
+						              </div>
+						            </div>
+						          </div>
+						        </div>
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        <button type="button" class="btn btn-primary">Save changes</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+					</li-->
+					<!--li>
+						<a href="#" data-toggle="tooltip" title="hover content here">💩</a>
+					</li-->
+					<!--li>
+						<div class="alert alert-info alert-dismissible" role="alert">
+						  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						  <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+						</div>
+					</li-->
+					<!--li class="poo" style="font-size:2em;opacity:0.5;">
+						<a href="#about">💩</a>
+					</li-->
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+	</nav>
+
 	<!-- Page Content -->
 	<div class="reveal">
 		<div class="slides">
 
 			<!-- intro -->
-			<section id="intro" data-background-iframe="ven/hd/dtp-spacetoneparticle/index.html" style="background-position:center center;background-size:cover;background-repeat:no-repeat;width:100%;">
+			<!-- section id="intro" data-background-iframe="ven/hd/dtp-spacetoneparticle/index.html" style="background-position:center center;background-size:cover;background-repeat:no-repeat;width:100%;" -->
+			<section id="intro" data-background-iframe="ven/hd/floating-bubbles/floating-bubbles.html" style="background-image:url(https://cdn.shopify.com/s/files/1/0962/3744/products/WHX-paper-_0001_5mmDotChelseaBlue.pdf_2048x2048.jpg?v=1445604259);background-position:center center;background-size:cover;background-repeat:no-repeat;width:100%;overflow:hidden;">
 				
 				<div class="container" style="width:100%;">
+					
+					<!-- social media icons -->
+					<div class="row bootstrap about social" style="width: 100%;">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bootstrap project title" style="">
+						      <div id="" class="row linkstwo" style="font-size:50%;">
+								<div class="col-xs-4"></div>
+								<div class="col-xs-4" style="/*padding:0.25em 6% 0.75em 6%;*/">
+								  <div class="col-xs-2">
+								    <button>
+								      <a href="https://github.com/constantmori" target="_blank" class="btn" style="color:#cccad9;word-spacing:0.5em;padding:0.3em 0.3em 0.3em 0.7em;font-size:larger;">
+									<i class="fa fa-github-alt" aria-hidden="true"></i>
+								      </a>
+								    </button>
+								  </div>
+								  <div class="col-xs-2">
+								    <button>
+								      <a href="https://codepen.io/halloconnie/" target="_blank" class="btn" style="color:#cccad9;word-spacing:0.5em;padding:0.3em 0.3em 0.3em 0.7em;font-size:larger;">
+									<i class="fa fa-codepen" aria-hidden="true"></i>
+								      </a>
+								    </button>
+								  </div>
+								  <div class="col-xs-2">
+								    <button>
+								      <a href="https://www.behance.net/_connie" target="_blank" class="btn" style="color:#cccad9;padding:0.3em 0.3em 0.3em 0.7em;font-size:larger;">
+									<i class="fa fa-behance" aria-hidden="true"></i>
+								      </a>
+								    </button>
+								  </div>
+								  <div class="col-xs-2">
+								    <button>
+								      <a href="https://linkedin.com/in/hiconnie" target="_blank" class="btn" style="color:#cccad9;word-spacing:0.5em;padding:0.3em 0.3em 0.3em 0.7em;font-size:larger;">
+									<i class="fa fa-linkedin" aria-hidden="true"></i>
+								      </a>
+								    </button>
+								  </div>
+								  <div class="col-xs-2">
+								    <button>
+								      <a href="https://twitter.com/HalloConnie" target="_blank" class="btn" style="color:#cccad9;padding:0.3em 0.3em 0.3em 0.7em;font-size:larger;">
+									<i class="fa fa-twitter" aria-hidden="true"></i>
+								      </a>
+								    </button>
+								  </div>
+								  <div class="col-xs-2">
+								    <button>
+								      <a href="https://medium.com/@HalloConnie" target="_blank" class="btn" style="color:#cccad9;padding:0.3em 0.3em 0.3em 0.7em;font-size:larger;">
+									<i class="fa fa-medium" aria-hidden="true"></i>
+								      </a>
+								    </button>
+								  </div>
+								</div>
+								<div class="col-xs-4"></div>
+						      </div>
+						</div>
+					</div>
+					<!-- /social media icons -->
+
 					<div class="row" style="width:100%;">
 						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="width:2em;"></div>
 
@@ -432,6 +637,55 @@
 							</button>
 						</div>
 					</div>
+
+					<div class="row invert bootstrap event" style="width:100%;">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bootstrap" style="width:100%;margin:0 0.10%;">
+							<h3 class="inverted sub-header-title" style="font-size:49%;text-transform:uppercase;letter-spacing:0.5em;color:whitesmoke;">
+								BikeShare Top Winning Awarded Entry
+							</h3>
+						</div>
+					</div>
+					
+					<!-- list -->
+					<div class="row index info" style="width:100%;">
+						<div class="col-xs-12" style="padding:1.25%;margin:0 0.10%;">
+							<ol class="index info" style="line-height:1.5em;list-style-type: hiragana-iroha;margin-top:2em;">
+								<li class="" style="padding:0 0 0.5em 1em;">
+									<i class="fa fa-copyright copyright" aria-hidden="true"></i> 2017 Constant Mori
+								</li>
+								<li class="" style="padding:0 0 0.5em 1em;">
+									Made with <i class="fa fa-heart" aria-hidden="true"></i> using Reveal.JS + Bootstrap
+								</li>
+								<div style="opacity:1;">
+									<li class="" style="padding:0 0 0.5em 1em;">
+										<i class="fa fa-desktop" aria-hidden="true"></i>
+										<i class="fa fa-laptop" aria-hidden="true"></i>
+										<i class="fa fa-tablet" aria-hidden="true"></i>
+										<i class="fa fa-mobile" aria-hidden="true" style="opacity:0.15;"></i>
+										Friendly
+									</li>
+									<li class="" style="padding:0 0 0.5em 1em;">
+										Tested on
+										<i class="fa fa-chrome" aria-hidden="true"></i>
+										<i class="fa fa-firefox not-yet" aria-hidden="true" style="opacity:1;"></i>
+										<i class="fa fa-safari not-yet" aria-hidden="true" style="opacity:0.15;"></i>
+									</li>
+								</div>
+							</ol>
+						</div>
+					</div>	
+					<!-- /list -->	
+
+					<div class="row linkstwo" style="width:100%;font-size:50%;text-transform:uppercase;letter-spacing:0.25em;padding:1.5%;border-top:1px solid rgba(6,34,42,0.25);">
+						<div id="" class="col-xs-12">
+							<button>
+								<a href="bikeshare.html" target="_blank" data-preview-link class="btn drk two">
+									some link
+								</a>
+							</button>
+						</div>
+					</div>
+
 				</div>
 				
 				<!-- mobile device navigation -->
@@ -581,13 +835,11 @@
 
 				</div>
 			</section>
-			<!-- /Physical  -->		
-       
+			<!-- /Physical  -->	
 
 		</div>
 		<!-- /.slides -->
 
-		
 	</div>
 	<!-- /.reveal -->
 
@@ -602,7 +854,437 @@
 	<script src="js/reveal/reveal.js"></script>
 	<script src="js/reveal/bg-iframe.js"></script>
 
+	<!-- script>
+		var items = [
+				// chart-frame-1 line
+				{		selector: "#chart-frame-1", // iframe id
+						type: "line", // type can be pie/doughtnut/line/bar/radar/polararea
+						data: { // data []
+								labels: [
+										"H O M E  P A G E",
+										"F O R M S",
+										"T R U S T E D  S E C U R I T Y",
+										"C O N T E N T  Q U A L I T Y",
+										"S E A R C H",
+										"H E L P  +  E R R O R  -  T O L E R A N C E",
+										"S H A R A B I L I T Y"
+								],
+								datasets: [{ // background
+										label: "Dark",
+										fillColor: "rgba(51,51,51,0.5)",
+										strokeColor: "rgba(51,51,51,0.15)",
+										pointColor: "rgba(51,51,51,1)",
+										pointStrokeColor: "rgba(6,34,42,0.75)",
+										pointHighlightFill: "#fff",
+										pointHighlightStroke: "rgba(220,220,220,1)",
+										data: [65, 59, 80, 81, 56, 55, 40]/*,
+										fill: true,
+										lineTension: 0.1,
+										backgroundColor: "rgba(75,192,192,0.4)",
+										borderColor: "rgba(75,192,192,1)",
+										borderCapStyle: 'butt',
+										borderDash: [],
+										borderDashOffset: 0.0,
+										borderJoinStyle: 'miter',
+										pointBorderColor: "rgba(75,192,192,1)",
+										pointBackgroundColor: "#fff",
+										pointBorderWidth: 1,
+										pointHoverRadius: 5,
+										pointHoverBackgroundColor: "rgba(75,192,192,1)",
+										pointHoverBorderColor: "rgba(220,220,220,1)",
+										pointHoverBorderWidth: 2,
+										pointRadius: 1,
+										pointHitRadius: 10,
+										spanGaps: true*/
 
+								}, { // foreground
+										label: "Blue",
+										fillColor: "rgba(151,187,205,0.22)",
+										strokeColor: "rgba(151,187,205,0.25)",
+										pointColor: "rgba(220,220,220,0.5)",
+										pointStrokeColor: "#fff",
+										pointHighlightFill: "#fff",
+										pointHighlightStroke: "rgba(151,187,205,1)",
+										data: [28, 48, 40, 19, 86, 27, 65]/*,
+										fill: true,
+										lineTension: 0.1,
+										backgroundColor: "rgba(75,192,192,0.4)",
+										borderColor: "rgba(75,192,192,1)",
+										borderCapStyle: 'butt',
+										borderDash: [],
+										borderDashOffset: 0.0,
+										borderJoinStyle: 'miter',
+										pointBorderColor: "rgba(75,192,192,1)",
+										pointBackgroundColor: "#fff",
+										pointBorderWidth: 1,
+										pointHoverRadius: 5,
+										pointHoverBackgroundColor: "rgba(75,192,192,1)",
+										pointHoverBorderColor: "rgba(220,220,220,1)",
+										pointHoverBorderWidth: 2,
+										pointRadius: 1,
+										pointHitRadius: 10,
+										spanGaps: true*/
+								}] // end of datasets
+						}, // end of data
+						options: {
+							responsive: true,
+							scaleFontSize: 10,
+							scaleFontColor: "rgba(220,220,220,0.75)",
+							scaleFontFamily: "'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif"
+						}
+		    }, // End of LINE #chart-frame-1
+				// chart-frame-2 bar
+		    { 	selector: "#chart-frame-2",
+		        type: "bar",
+		        data: {
+		            labels: ["January", "February", "March", "April", "May", "June", "July"],
+		            datasets: [{
+		                label: "My First dataset",
+		                fillColor: "rgba(220,220,220,0.5)",
+		                strokeColor: "rgba(220,220,220,0.8)",
+		                highlightFill: "rgba(220,220,220,0.75)",
+		                highlightStroke: "rgba(220,220,220,1)",
+		                data: [65, 59, 80, 81, 56, 55, 40]
+		            }, {
+		                label: "My Second dataset",
+		                fillColor: "rgba(151,187,205,0.5)",
+		                strokeColor: "rgba(151,187,205,0.8)",
+		                highlightFill: "rgba(151,187,205,0.75)",
+		                highlightStroke: "rgba(151,187,205,1)",
+		                data: [28, 48, 40, 19, 86, 27, 90]
+		            }]
+		        },
+		        options: {
+		            responsive: true,
+								scaleFontColor: "rgba(220,220,220,0.75)",
+								scaleFontFamily: "'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif"
+		        }
+		    },
+				// chart-frame-3 radar
+		    { 	selector: "#chart-frame-3",
+		        type: "radar",
+		        data: {
+		            labels: [
+										// 10 TOPICS
+										"I N F O  A R C H I T E C T U R E",
+										"V I S U A L  D E S I G N",
+										"F U N C T I O N A L I T Y",
+										"U S A B I L I T Y  +  A C C E S S I B I L I T Y",
+										"K E Y W O R D  S E A R C H",
+										"P L A T F O R M",
+										"T Y P O G R A P H Y",
+										"U S E R  I N T E R F A C E",
+										"C O N T E N T  S T R A T E G Y",
+										"I N T E R A C T I O N  D E S I G N"
+										/*"R E S P O N S I V E",
+										"D A T A B A S E",
+										"D E S I G N   &   C O L O R   S C H E M E",
+										"K E Y    C O N T E N T",
+										"N A V I G A T I O N", "E A S E  O F  U S E",
+										"V I S U A L   G R A P H I C S"*/
+								],
+		            datasets: [{
+		                label: "Set Backs",
+
+		                fillColor: "rgba(51,51,51,0.25)", // web shape bg clr
+		                strokeColor: "rgba(51,51,51,0.15)",
+										// "rgba(220,220,220,0.5)", // web shape outline
+		                pointColor: "rgba(51,51,51,1)", // dark dot
+
+		                pointStrokeColor: "rgba(6,34,42,0.75)", // ?
+										pointHighlightFill: "#fff", // popup legend color swatch
+		                //pointHighlightStroke: "rgba(220,220,220,0.5)", // popup legend color swatch border
+										pointHoverBorderColor: "rgba(220,220,220,0.25)",
+		                data: [75, 56, 99, 29, 31, 81, 46, 55, 74, 34]
+		            }, {
+		                label: "New Features",
+		                fillColor: "rgba(151,187,205,0.32)",
+		                strokeColor: "rgba(151,187,205,0.25)",
+		                pointColor: "rgba(151,187,205,1)",
+		                pointStrokeColor: "#fff",
+		                pointHighlightFill: "#fff",
+		                pointHighlightStroke: "rgba(151,187,205,1)",
+		                data: [38, 68, 60, 19, 52, 35, 10, 96, 27, 54]
+		            }]
+		        },
+		        options: {
+		        }
+		    },
+        // TARA HCI
+		    { 	selector: "#tara_hci",
+		        type: "radar",
+		        data: {
+		            labels: [
+										// 10 TOPICS
+										"T E S L A",
+										"G O O G L E   G L A S S",
+										"A N D R O I D"
+								],
+		            datasets: [{
+		                label: "Tesla",
+
+		                fillColor: "rgba(51,51,51,0.25)", // web shape bg clr
+		                strokeColor: "rgba(51,51,51,0.15)",
+										// "rgba(220,220,220,0.5)", // web shape outline
+		                pointColor: "rgba(51,51,51,1)", // dark dot
+
+		                pointStrokeColor: "rgba(6,34,42,0.75)", // ?
+										pointHighlightFill: "#fff", // popup legend color swatch
+		                //pointHighlightStroke: "rgba(220,220,220,0.5)", // popup legend color swatch border
+										pointHoverBorderColor: "rgba(220,220,220,0.25)",
+		                data: [75, 56, 99]
+		            }, {
+		                label: "Google Glass",
+		                fillColor: "rgba(151,187,205,0.32)",
+		                strokeColor: "rgba(151,187,205,0.25)",
+		                pointColor: "rgba(151,187,205,1)",
+		                pointStrokeColor: "#fff",
+		                pointHighlightFill: "#fff",
+		                pointHighlightStroke: "rgba(151,187,205,1)",
+		                data: [38, 68, 60]
+		            }, {
+		                label: "Android",
+		                fillColor: "rgba(151,187,205,0.32)",
+		                strokeColor: "rgba(151,187,205,0.25)",
+		                pointColor: "rgba(151,187,205,1)",
+		                pointStrokeColor: "#fff",
+		                pointHighlightFill: "#fff",
+		                pointHighlightStroke: "rgba(151,187,205,1)",
+		                data: [96, 27, 54]
+		            }]
+		        },
+		        options: {
+		        }
+		    },
+				// life
+				{ 	selector: "#life",
+		        type: "radar",
+		        data: {
+		            labels: [
+										// 12 TOPICS
+										"C Y C L I N G",
+										"H A C K I N G",
+										"P R O G R A M M I N G",
+										"R U N N I N G",
+										"D E U T S C H E",
+										"R E S E A R C H  P A P E R",
+										"D E S I G N I N G",
+										"R E A D I N G",
+										"S E L F - I M P R O V E M E N T",
+										"F U T U R I S M",
+										"M U S I C",
+										"M O T I O N  P I C T U R E S"
+								],
+		            datasets: [{
+		                label: "Set Backs",
+
+		                fillColor: "rgba(51,51,51,0.25)", // web shape bg clr
+		                strokeColor: "rgba(51,51,51,0.15)",
+										// "rgba(220,220,220,0.5)", // web shape outline
+		                pointColor: "rgba(51,51,51,1)", // dark dot
+
+		                pointStrokeColor: "rgba(6,34,42,0.75)", // ?
+										pointHighlightFill: "#fff", // popup legend color swatch
+		                //pointHighlightStroke: "rgba(220,220,220,0.5)", // popup legend color swatch border
+										pointHoverBorderColor: "rgba(220,220,220,0.25)",
+		                data: [75, 56, 99, 29, 31, 81, 46, 55, 74, 34, 90, 90]
+		            }, {
+		                label: "New Features",
+		                fillColor: "rgba(151,187,205,0.32)",
+		                strokeColor: "rgba(151,187,205,0.25)",
+		                pointColor: "rgba(151,187,205,1)",
+		                pointStrokeColor: "#fff",
+		                pointHighlightFill: "#fff",
+		                pointHighlightStroke: "rgba(151,187,205,1)",
+		                data: [38, 68, 60, 19, 52, 35, 10, 96, 27, 54, 80, 20]
+		            }]
+		        },
+		        options: {
+		        }
+		    },
+				// chart skills-inds custom
+				{ 	selector: "#skills-inds",
+		        type: "radar",
+		        data: {
+		            labels: [
+										// 10 Items
+										"F R E E H A N D   C O N C E P T U A L I S A T I O N",
+										"E R G O N O M I C   +   H U M A N   F A C T O R S", //   +   U S A B I L I T Y   R E S E A R C H",
+										"A N A L O G   T E C H N I C A L   B L U E P R I N T I N G",
+										"C A D   M O D E L L I N G",
+										"F I N I T E   E L E M E N T   A N A Y L S I S   (  F A E  )",
+										"S C A L E D   P H Y S I C A L   P R O T O T Y P I N G",
+										//"S H O P   T O O L S",
+										"W O O D   -   P O L Y M E R   -   M E T A L   F A B", // R I C A T I O N",
+										"P R O D U C T I O N   S A M P L E   T E S T I N G",
+										"I . P .   F O C U S E D   S M A L L - S C A L E    M A N U F .", // A C T U I N G"
+								],
+		            datasets: [{
+		                label: "Dark",
+
+		                fillColor: "rgba(51,51,51,0.25)", // web shape bg clr
+		                strokeColor: "rgba(51,51,51,0.15)", // web shape outline
+		                pointColor: "rgba(51,51,51,1)", // dark dot
+
+		                pointStrokeColor: "rgba(6,34,42,0.75)",
+										pointHighlightFill: "#fff", // popup legend color swatch
+										pointHoverBorderColor: "rgba(220,220,220,0.25)",
+		                data: [65, 59, 90, 81, 56, 40, 24, 48, 95]
+		            } /*, {
+		                label: "Blue",
+		                fillColor: "rgba(151,187,205,0.32)",
+		                strokeColor: "rgba(151,187,205,0.25)",
+		                pointColor: "rgba(151,187,205,1)",
+		                pointStrokeColor: "#fff",
+		                pointHighlightFill: "#fff",
+		                pointHighlightStroke: "rgba(151,187,205,1)",
+		                data: [28, 48, 40, 19, 96, 27, 100, 50, 38, 62]
+		            } */ ]
+		        },
+		        options: {
+		        }
+		    },
+				// chart skills-wearable custom
+				{ 	selector: "#skills-wearable",
+		        type: "radar",
+		        data: {
+		            labels: [
+										// 11 Items
+										"R   S T A T S   A N A L Y S I S",
+										"E R G O N O M I C   +   H U M A N   F A C T O R S",
+										"A N A L O G   T E C H N I C A L   B L U E P R I N T I N G",
+										"C A D   M O D E L L I N G",
+										"F I N I T E   E L E M E N T   A N A Y L S I S   (  F A E  )",
+										"3 D   P R I N T E D   P R O T O T Y P I N G",
+										"T E X T I L E   E M B E D D E D   E L E C T R O N I C S",
+										"H A P T I C   +   G Y R O S C O P E   S E N S O R S",
+										"A N D R O I D",
+										"R U B Y   +   J A V A",
+										"G O O G L E   M A P S   +   B I K E S H A R E   A P I"
+								],
+		            datasets: [{
+		                label: "Dark",
+
+		                fillColor: "rgba(51,51,51,0.25)", // web shape bg clr
+		                strokeColor: "rgba(51,51,51,0.15)", // web shape outline
+		                pointColor: "rgba(51,51,51,1)", // dark dot
+
+		                pointStrokeColor: "rgba(6,34,42,0.75)",
+										pointHighlightFill: "#fff", // popup legend color swatch
+										pointHoverBorderColor: "rgba(220,220,220,0.25)",
+		                data: [65, 59, 90, 81, 56, 40, 24, 48, 95, 20, 77]
+		            } /*, {
+		                label: "Blue",
+		                fillColor: "rgba(151,187,205,0.32)",
+		                strokeColor: "rgba(151,187,205,0.25)",
+		                pointColor: "rgba(151,187,205,1)",
+		                pointStrokeColor: "#fff",
+		                pointHighlightFill: "#fff",
+		                pointHighlightStroke: "rgba(151,187,205,1)",
+		                data: [28, 48, 40, 19, 96, 27, 100, 50, 38, 62]
+		            } */ ]
+		        },
+		        options: {
+		        }
+		    },
+				{ 	selector: "#chart-csv",
+		        type: "pie",
+		        url: '/data/monthly_temps.csv'
+		    },
+
+		]; // items Chart.js object item array + var items
+
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			// Display controls in the bottom right corner
+			controls: true,
+
+			// Display a presentation progress bar
+			progress: true,
+
+			// If true; each slide will be pushed to the browser history
+			history: true,
+
+			center: true,
+
+			// Loops the presentation, defaults to false
+			loop: true,
+
+			// Flags if mouse wheel navigation should be enabled
+			mouseWheel: true,
+
+			// Apply a 3D roll to links on hover
+			rollingLinks: false,
+
+			// UI style
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// theme: query.theme || 'default', // default/neon
+
+			// Transition style
+			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+			// Chart.js
+			chart: { items: items },
+
+			// Optional reveal.js plugins
+
+			dependencies: [
+				{
+					src: 'js/reveal/lib/classList.js'
+					, condition: function () {
+						return !document.body.classList;
+					}
+				}
+				, {
+					src: 'ven/reveal-plugin/markdown/marked.js'
+					, condition: function () {
+						return !!document.querySelector('[data-markdown]');
+					}
+				}
+				, {
+					src: 'ven/reveal-plugin/markdown/markdown.js'
+					, condition: function () {
+						return !!document.querySelector('[data-markdown]');
+					}
+				}
+					, //{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{
+					src: 'ven/reveal-plugin/zoom-js/zoom.js'
+					, async: true
+				}
+				, /*{
+					src: 'reveal/plugin/notes/notes.js'
+					, async: true
+				}
+				, */{
+					src: 'ven/reveal-plugin/external/external.js'
+					, async: true
+				}
+				, {
+					src: 'ven/reveal-plugin/wave/webcam-swiper-0.1.js'
+					, async: false
+				} ,
+						// Chart.min.js
+						{ src: 'ven/reveal-plugin/chartjs/Chart.min.js', async: true },
+						// the plugin
+						{ src: 'ven/reveal-plugin/chartjs/charted.js', async: true },
+						//{ src: 'js/playground.js', async: true },
+				]
+		});
+
+		Reveal.addEventListener("slidechanged",function(){
+			setTimeout(function(){ // Needed because the charter.js isnt loaded and executed by that time.
+				// To access them
+				// The RevealChart contains iframe ids as properties (replacing '-' with '_')
+				console.log(RevealChart.chart_frame_3.canvas);
+			},500);
+		},true); //false
+	</script -->
+
+	<!-- Chart.js -->
+	<!-- script type="text/javascript" src="ven/reveal-plugin/chartjs/Chart.min.js"></script>
+	<script type="text/javascript" src="ven/reveal-plugin/chartjs/charted.js"></scrip t-->
 
 </body>
 
