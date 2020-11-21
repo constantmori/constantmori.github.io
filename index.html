@@ -1,596 +1,71 @@
-<!DOCTYPE html>
-<html class="full" lang="en">
-
-<head>
-
-	<link rel="icon" href="https://emojipedia-us.s3.amazonaws.com/cache/06/ef/06ef6b773082d0e98439c4e0b8c9dee6.png">
-
-	<title>Constant Mori &#43;&#43;</title><!-- 👻 &#43; 💁 &#61; 🦄 -->
-
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=yes, minimal-ui">
-
-	<meta name="description" content="___________">
-	<meta name="author" content="Constant Mori HalloConnie CCHGF">
-
-	<!-- Reveal meta -->
-	<link rel="stylesheet" href="css/reveal/reveal.css">
-	<link rel="stylesheet" href="css/reveal/theme/2001.css" id="theme">
-
-	<!-- CUSTOM -->
-	<link rel="stylesheet" href="css/reveal/styling.css">
-	<link rel="stylesheet" media="all" href="css/reveal/media2.css">
-
-	<!-- Typefaces -->
-	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Quicksand:300|Source+Code+Pro:200|Roboto:400,300,500,700" rel="stylesheet">
-
-	<!-- UI Kits -->
-	<link rel="stylesheet" href="ven/font-awesome/css/font-awesome.min.css">
-
-	<!-- PLUGINS -->
-
-	<!-- Bootstrap Core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- React.js -->
-	<script src="https://npmcdn.com/react@15.3.0/dist/react.js"></script>
-	<script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.js"></script>
-	<script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
-	<script src="https://npmcdn.com/jquery@3.1.0/dist/jquery.min.js"></script>
-	<script src="https://npmcdn.com/remarkable@1.6.2/dist/remarkable.min.js"></script>
-	
-    <![endif]-->
-
-
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<style>
-/* 		.reveal {
-			margin-top: 0;
-		} */
-/* 		.reveal .slide-background {
-			background-image: url(https://cdn.shopify.com/s/files/1/0962/3744/products/WHX-paper-_0001_5mmDotChelseaBlue.pdf_2048x2048.jpg);
-		} */
-		
-		.reveal .slides > section.present, .reveal .slides > section > section.present {
-    left: 0;
-		}
-
-		/* nav style */
-
-		.navbar {
-			font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;
-			text-transform: uppercase;
-			letter-spacing: 0.25em;
-			font-size: 90%;
-		}
-
-		.navbar-inverse {
-			background-color: rgba(58, 61, 68, 0.99);
-			border-color: transparent;
-		}
-
-		.navbar-inverse .navbar-toggle {
-			border-color: transparent;
-		}
-
-		.navbar-inverse .navbar-toggle .icon-bar {
-			background-color: rgba(93, 226, 201, 0.85);
-		}
-
-		.navbar-fixed-bottom .navbar-collapse,
-		.navbar-fixed-top .navbar-collapse {
-			max-height: inherit;
-		}
-		/* Notification tooltip Notes */
-
-		.btn {
-			border-radius: 0;
-		}
-
-		h4.inverted-btn {
-			padding: 8% 15% 0 15%;
-			color: rgba(255, 255, 255, 1);
-			text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
-			font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;
-			font-size: 0.5em;
-			letter-spacing: 0.15em;
-		}
-
-		hr.notes {
-			border-top: transparent;
-		}
-
-		.notification-box {
-			right: 25%;
-			left: 25%;
-		}
-
-		img.notification-box {
-			margin: 0;
-			width: 10%;
-		}
-
-		h4.notification-box {
-			position: initial;
-		}
-
-		ul.notification-box {
-			list-style-type: none;
-			letter-spacing: 0.45em;
-			color: rgba(255, 255, 255, 0.5);
-			background-color: rgba(51, 51, 51, 0.25);
-			font-size: 0.5em;
-			font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;
-			text-transform: uppercase;
-			text-align: center;
-			line-height: 1.75em;
-			width: 60%;
-			padding: 2%;
-			/*padding: 5% 10% 5% 10%;*/
-			margin-left: 0;
-		}
-
-		ul.notification-box-hide {
-			list-style-type: none;
-			letter-spacing: 0.45em;
-			color: rgba(255, 255, 255, 0.5);
-			/* background-color: rgba(51, 51, 51, 0.25); */
-			/* font-size: 0.5em; */
-			font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;
-			/* text-transform: uppercase; */
-			text-align: center;
-			line-height: 1.75em;
-			/* width: 60%; */
-			padding-top: 2%;
-			/* padding: 5% 10% 5% 10%; */
-			margin-left: 0;
-		}
-
-		.btn-default.active.focus,
-		.btn-default.active:focus,
-		.btn-default.active:hover,
-		.btn-default:active.focus,
-		.btn-default:active:focus,
-		.btn-default:active:hover,
-		.open>.dropdown-toggle.btn-default.focus,
-		.open>.dropdown-toggle.btn-default:focus,
-		.open>.dropdown-toggle.btn-default:hover,
-		.btn-default.active,
-		.btn-default:active,
-		.open>.dropdown-toggle.btn-default,
-		.btn-default:hover,
-		.btn-default.focus,
-		.btn-default:focus,
-		.btn.active,
-		.btn:active {
-			color: transparent !important;
-			background-color: transparent !important;
-			border-color: transparent !important;
-			outline: transparent;
-			outline: none;
-			outline-offset: inherit;
-		}
-
-		.headers.logo.svg {
-			padding-right: 10%;
-		}
-
-		button#hide {
-			font-size: 30%;
-		}
-
-		button#show,
-		button#hide {
-			background: transparent;
-			border: transparent;
-			box-shadow: none;
-			margin: 0 auto;
-			display: block;
-			margin-top: 0%;
-			/* padding: 6.5%; */
-			margin-bottom: -29%;
-		}
-
-		button#show-notes {
-			background: transparent;
-			border: none;
-			margin: 0 auto;
-			display: block;
-			/* letter-spacing: 0.25em; */
-			text-transform: uppercase;
-			/* font-weight: normal; */
-			background-color: rgba(48, 16, 78, 0.55);
-			/* padding-left: 0.47em; */
-			width: 50px;
-			height: 50px;
-			border-radius: 100%;
-			/* color: rgba(138,43,226,0.5); */
-			color: rgba(104, 232, 208, 0.99);
-		}
-
-		button#hide-notes {
-			list-style-type: none;
-			letter-spacing: 0.45em;
-			color: rgba(255, 255, 255, 0.5);
-			background-color: rgba(51, 51, 51, 0.25);
-			border: none;
-			font-size: 0.5em;
-			font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;
-			text-transform: uppercase;
-			text-align: center;
-			line-height: 1.75em;
-			width: 60%;
-			padding: 2%;
-			/*padding: 5% 10% 5% 10%;*/
-			margin-left: 0;
-		}
-
-		.categories.fontsize h2.headers {
-			font-size: 0.75em;
-			border-top: 0.5px solid rgba(0, 0, 0, 0.05);
-		}
-
-		h3.sub-header-title.category {
-			background-color: rgba(153, 153, 153, 0.5);
-			font-size: 0.3em;
-			letter-spacing: 0.25em;
-			padding: 1%;
-			text-align: center;
-			margin: 0 auto;
-			border: 1px solid rgba(153, 153, 153, 0.85);
-			border-style: groove;
-			display: block;
-			margin-bottom: 1%;
-			margin-top: -4%;
-		}
-
-		hr.sub-header-title.category.webapp {
-			width: 18%;
-			border-top: 1px solid rgba(153, 153, 153, 0.85);
-			border-style: groove;
-		}
-
-		h3.sub-header-title.category.webapp {
-			width: 12%;
-			font-weight: bolder;
-		}
-		/* container category */
-
-		.container.sub-header-title.category,
-		.row.sub-header-title.category {
-			width: 100%;
-			margin: 0 auto;
-			display: block;
-			text-align: center;
-			margin-top: -5%;
-			margin-bottom: -0.25em;
-			opacity: 0.6;
-			font-size: 85%;
-		}
-
-		.col-xs-1.col-sm-1.sub-header-title.category.webapp.links hr {
-			width: 30%;
-			float: right;
-			margin-top: 90%;
-			border-top: 5px solid rgba(21, 88, 76, 0.5);
-		}
-
-		.col-md-1.col-lg-1.sub-header-title.category.webapp.links hr {
-			width: 30%;
-			float: right;
-			margin-top: 100%;
-			border-top: 5px solid rgba(21, 88, 76, 0.5);
-		}
-
-		.col-xs-1.col-sm-1.sub-header-title.category.webapp.rechts hr {
-			width: 30%;
-			float: right;
-			margin-top: 90%;
-			border-top: 5px solid rgba(21, 88, 76, 0.5);
-		}
-
-		.col-md-1.col-lg-1.sub-header-title.category.webapp.rechts hr {
-			width: 30%;
-			float: left;
-			margin-top: 100%;
-			border-top: 5px solid rgba(21, 88, 76, 0.5);
-		}
-
-		.col-xs-6.sub-header-title.category.webapp.mitte,
-		.col-sm-6.sub-header-title.category.webapp.mitte,
-		.col-md-4.sub-header-title.category.webapp.mitte,
-		.col-lg-4.sub-header-title.category.webapp.mitte {
-			background-color: rgba(21, 88, 76, 0.5);
-			padding: 2% 0 0.25% 0;
-			font-size: 50%;
-			vertical-align: middle;
-			margin: 4em 0 -0.5em 0;
-		}
-
-		h3.category.webapp {
-			letter-spacing: 0.5em;
-		}
-
-		/* header description */
-		.container.description.inverted.sub-header-title {
-			width: 100%;
-			font-size: 80%;
-			font-size: 70%;
-			font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;
-			color: rgba(240, 248, 255, 0.99);
-			letter-spacing: 0.2em;
-			text-transform: uppercase;
-			font-weight: initial;
-			padding: 0 10%;
-		}
-
-		.col-xs-12.description.inverted.sub-header-title p,
-		.col-xs-12.col-sm-12.col-md-12.col-lg-12.description.inverted.sub-header-title p {
-			line-height: 1.85em;
-			word-wrap: break-word;
-			word-break: break-word;
-		}
-
-		@media (min-width: 768px) {
-			.container {
-				width: 750px;
-			}
-		}
-		@media (min-width: 992px) {
-			.container {
-				width: 970px;
-			}
-		}
-		@media (min-width: 1200px) {
-			.container {
-				width: 1170px;
-			}
-		}
-
-		/* text blockquote p css fade-in animation */
-		@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-		}
-
-		/* Firefox < 16 */
-		@-moz-keyframes fadein {
-				from { opacity: 0; }
-				to   { opacity: 1; }
-		}
-
-		/* Safari, Chrome and Opera > 12.1 */
-		@-webkit-keyframes fadein {
-				from { opacity: 0; }
-				to   { opacity: 1; }
-		}
-
-		/* Internet Explorer */
-		@-ms-keyframes fadein {
-				from { opacity: 0; }
-				to   { opacity: 1; }
-		}
-
-		/* Opera < 12.1 */
-		@-o-keyframes fadein {
-				from { opacity: 0; }
-				to   { opacity: 1; }
-		}
-
-		.blur-mid {
-			-webkit-filter:blur(1px);
-			-moz-filter: blur(1px);
-			-o-filter: blur(1px);
-			-ms-filter: blur(1px);
-		}
-
-		.blur-bg {
-			-webkit-filter:blur(3px);
-			-moz-filter: blur(3px);
-			-o-filter: blur(3px);
-			-ms-filter: blur(3px);
-		}
-	</style>
-
-</head>
-
-<body>
-
-	<!-- Page Content -->
-	<div class="reveal">
-		<div class="slides">
-
-			<!-- intro -->
-			<section id="intro" data-background-iframe="ven/hd/dtp-spacetoneparticle/index.html" style="background-position:center center;background-size:cover;background-repeat:no-repeat;width:100%;">
-				
-				<div class="container" style="width:100%;">
-					<div class="row" style="width:100%;">
-						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" style="width:2em;"></div>
-
-						<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="letter-spacing:0.02em;font-size:500%;top:0.5em;">
-							<div class="row" style="width:100%;margin-top:0.35em;">
-								Hello.
-							</div>
-						</div>
-
-						<div class="col-xs-1" style="position:absolute;font-size: 3em;right:-1.5%;opacity:0.75;top:-0.25em;">
-							<button class="navigate-right enabled" aria-label="below slide" style="background:transparent;border:transparent;">
-								<i class="fa fa-angle-right" aria-hidden="true"></i>
-							</button>
-						</div>
-					</div>
-				</div>
-				
-				<!-- mobile device navigation -->
-				<script>
-					// Delicously hacky. Look away.
-					if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) document.write('<p style="color: rgba(0,0,0,0.3); text-shadow: none;">(' + 'Swipe Left to Navigate' + ')</p>');
-				</script>
-			</section>
-			<!-- / intro -->
-
-      			<!-- Physical -->
-			
-			<!--section id="physical" data-background="rgba(6,34,42,0.25)" -->	
-			<section id="physical" class="uxmobile" class="" data-background-iframe="ven/hd/floating-bubbles/floating-bubbles.html" style="background-position:center center;background-size:cover;background-repeat:no-repeat;overflow:hidden;">
-				<div class="container content" style="width:100%;margin-top:0.5em;">
-					<!-- ribbon -->
-					<!-- div class="row bootstrap subheader ux mobile" style="width: 100%;font-size:65%;">
-						<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 bootstrap links" style="width:19.65%;padding:1.25%;margin:0 0.10%;"></div>
-						<div class="col-xs-8 col-sm-6 col-md-4 col-lg-4 bootstrap mitte" style="width:60%;margin:0 0.10%;">
-							<div class="row bootstrap subheader digital cms category title" style="width: 100%;">
-								<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 bootstrap links" style="width:19.65%;padding:0 0 2% 2%;">
-									<hr class="category" style="width:1.5em;float:right;border:0.1em solid rgba(153, 153, 153, 0.25);"/>
-								</div>
-								<div class="col-xs-8 col-sm-6 col-md-4 col-lg-4 bootstrap mitte" style="background-color:rgba(153, 153, 153, 0.25);width:60%;padding:3.5% 0 0 0;">
-									<h3 class="category cms" style="letter-spacing:0.5em;text-transform:uppercase;font-family: 'Quicksand', 'Century Gothic', 'Brandon Grotesque', 'Gill Sans', sans-serif;font-size:0.75em;font-weight: 800;padding:2%;margin-bottom:1%;margin-top:-4%;color:rgba(51,51,51,0.8);">Showcase</h3>
-								</div>
-								<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 bootstrap rechts" style="width:19.65%;padding:0 2% 2% 0;">
-									<hr class="category" style="width:1.5em;float:left;border:0.1em solid rgba(153, 153, 153, 0.25);"/>
-								</div>
-							</div>
-						</div>
-						<div class="col-xs-2 col-sm-3 col-md-4 col-lg-4 bootstrap rechts" style="width:19.65%;padding:1.25%;margin:0 0.10%;"></div>
-					</div -->
-					
-					<div class="container content" style="width:100%;margin-top:1.25em;">
-  					
-					<!-- social media icons -->
-					<div class="row bootstrap about social" style="width: 100%;">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bootstrap project title" style="">
-						      <div id="" class="row linkstwo" style="font-size:50%;">
-								<div class="col-xs-4"></div>
-								<div class="col-xs-4" style="/*padding:0.25em 6% 0.75em 6%;*/">
-								  <div class="col-xs-2">
-								    <button>
-								      <a href="https://github.com/constantmori" target="_blank" class="btn" style="color:#cccad9;word-spacing:0.5em;padding:0.3em 0.3em 0.3em 0.7em;font-size:larger;">
-									<i class="fa fa-github-alt" aria-hidden="true"></i>
-								      </a>
-								    </button>
-								  </div>
-								  <div class="col-xs-2">
-								    <button>
-								      <a href="https://codepen.io/halloconnie/" target="_blank" class="btn" style="color:#cccad9;word-spacing:0.5em;padding:0.3em 0.3em 0.3em 0.7em;font-size:larger;">
-									<i class="fa fa-codepen" aria-hidden="true"></i>
-								      </a>
-								    </button>
-								  </div>
-								  <div class="col-xs-2">
-								    <button>
-								      <a href="https://www.behance.net/_connie" target="_blank" class="btn" style="color:#cccad9;padding:0.3em 0.3em 0.3em 0.7em;font-size:larger;">
-									<i class="fa fa-behance" aria-hidden="true"></i>
-								      </a>
-								    </button>
-								  </div>
-								  <div class="col-xs-2">
-								    <button>
-								      <a href="https://linkedin.com/in/hiconnie" target="_blank" class="btn" style="color:#cccad9;word-spacing:0.5em;padding:0.3em 0.3em 0.3em 0.7em;font-size:larger;">
-									<i class="fa fa-linkedin" aria-hidden="true"></i>
-								      </a>
-								    </button>
-								  </div>
-								  <div class="col-xs-2">
-								    <button>
-								      <a href="https://twitter.com/HalloConnie" target="_blank" class="btn" style="color:#cccad9;padding:0.3em 0.3em 0.3em 0.7em;font-size:larger;">
-									<i class="fa fa-twitter" aria-hidden="true"></i>
-								      </a>
-								    </button>
-								  </div>
-								  <div class="col-xs-2">
-								    <button>
-								      <a href="https://medium.com/@HalloConnie" target="_blank" class="btn" style="color:#cccad9;padding:0.3em 0.3em 0.3em 0.7em;font-size:larger;">
-									<i class="fa fa-medium" aria-hidden="true"></i>
-								      </a>
-								    </button>
-								  </div>
-								</div>
-								<div class="col-xs-4"></div>
-						      </div>
-						</div>
-					</div>
-					<!-- /social media icons -->
-						
-	          			<div class="row bootstrap ux mobile project" style="width: 100%;">
-						<div class="col-xs-12 bootstrap project title" style="padding:0 0 1.5% 0;font-size:115%;">
-							<h2 class="headers project title" style="text-transform:uppercase;letter-spacing:0.15em;text-align:center;margin-bottom: 0;">
-								Hello
-							</h2>
-						</div>
-					</div>
-
-					<div class="row invert bootstrap event" style="width:100%;">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bootstrap" style="width:100%;margin:0 0.10%;">
-							<h3 class="inverted sub-header-title" style="font-size:49%;text-transform:uppercase;letter-spacing:0.5em;color:whitesmoke;">
-								BikeShare Top Winning Awarded Entry
-							</h3>
-						</div>
-					</div>
-					
-					<!-- list -->
-					<div class="row index info" style="width:100%;">
-						<div class="col-xs-12" style="padding:1.25%;margin:0 0.10%;">
-							<ol class="index info" style="line-height:1.5em;list-style-type: hiragana-iroha;margin-top:2em;">
-								<li class="" style="padding:0 0 0.5em 1em;">
-									<i class="fa fa-copyright copyright" aria-hidden="true"></i> 2017 Constant Mori
-								</li>
-								<li class="" style="padding:0 0 0.5em 1em;">
-									Made with <i class="fa fa-heart" aria-hidden="true"></i> using Reveal.JS + Bootstrap
-								</li>
-								<div style="opacity:1;">
-									<li class="" style="padding:0 0 0.5em 1em;">
-										<i class="fa fa-desktop" aria-hidden="true"></i>
-										<i class="fa fa-laptop" aria-hidden="true"></i>
-										<i class="fa fa-tablet" aria-hidden="true"></i>
-										<i class="fa fa-mobile" aria-hidden="true" style="opacity:0.15;"></i>
-										Friendly
-									</li>
-									<li class="" style="padding:0 0 0.5em 1em;">
-										Tested on
-										<i class="fa fa-chrome" aria-hidden="true"></i>
-										<i class="fa fa-firefox not-yet" aria-hidden="true" style="opacity:1;"></i>
-										<i class="fa fa-safari not-yet" aria-hidden="true" style="opacity:0.15;"></i>
-									</li>
-								</div>
-							</ol>
-						</div>
-					</div>	
-					<!-- /list -->	
-
-					<div class="row linkstwo" style="width:100%;font-size:50%;text-transform:uppercase;letter-spacing:0.25em;padding:1.5%;border-top:1px solid rgba(6,34,42,0.25);">
-						<div id="" class="col-xs-12">
-							<button>
-								<a href="bikeshare.html" target="_blank" data-preview-link class="btn drk two">
-									some link
-								</a>
-							</button>
-						</div>
-					</div>
-
-				</div>
-			</section>
-			<!-- /Physical  -->	
-
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Constant Mori &#43;&#43;</title><!-- 👻 &#43; 💁 &#61; 🦄 -->
+
+		<!-- Reveal meta -->
+		<link rel="stylesheet" href="css/reveal/reveal.css">
+		<link rel="stylesheet" href="css/reveal/theme/2001.css" id="theme">
+
+		<!-- CUSTOM -->
+		<link rel="stylesheet" href="css/reveal/styling.css">
+		<link rel="stylesheet" media="all" href="css/reveal/media2.css">
+
+		<!-- Typefaces -->
+		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Quicksand:300|Source+Code+Pro:200|Roboto:400,300,500,700" rel="stylesheet">
+		<!--link href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700"-->
+		<!--
+		font-family: 'Cormorant Garamond',serif;
+		font-family: 'Quicksand', sans-serif;
+		font-family: 'Source Code Pro', monospace;
+		-->
+
+		<!-- UI Kits -->
+		<link rel="stylesheet" href="ven/font-awesome/css/font-awesome.min.css">
+
+		<!-- PLUGINS -->
+
+		<!-- Overlay -->
+		<!--link rel="stylesheet" href="reveal/lib/ven/overlay/overlay.css"-->
+
+		<!-- Bootstrap Core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Layout Padding -->
+		<!-- link href="css/the-big-picture.css" rel="stylesheet" -->
+
+		<!-- React.js -->
+		<script src="https://npmcdn.com/react@15.3.0/dist/react.js"></script>
+		<script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.js"></script>
+		<script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+		<script src="https://npmcdn.com/jquery@3.1.0/dist/jquery.min.js"></script>
+		<script src="https://npmcdn.com/remarkable@1.6.2/dist/remarkable.min.js"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>Slide 1</section>
+				<section>Slide 2</section>
+			</div>
 		</div>
-		<!-- /.slides -->
-	
-	</div>
-	<!-- /.reveal -->
 
-	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-
-	<!-- Reveal JavaScript -->
-	<script src="js/reveal/lib/head.min.js"></script>
-	<script src="js/reveal/reveal.js"></script>
-	<script src="js/reveal/bg-iframe.js"></script>
-
-</body>
-
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
 </html>
-
-	
